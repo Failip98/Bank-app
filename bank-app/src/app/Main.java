@@ -12,11 +12,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         stage = primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("/app/login/login.fxml"));
         // First FXML that should be displayed is the Login
         // after successful login you should get transferred to Home
-        Parent root = FXMLLoader.load(getClass().getResource("/app/home/home.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/app/home/home.fxml"));
         primaryStage.setTitle("Bank app");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
 

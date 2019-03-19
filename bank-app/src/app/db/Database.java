@@ -13,7 +13,7 @@ public class Database {
     }
     private Database() { connectToDb(); }
 
-    final String connectionURL = "jdbc:...";
+    final String connectionURL = "jdbc:mysql://localhost/bank-app?user=root&password=Filip9808 &serverTimezone=UTC";
     private Connection conn = null;
     private HashMap<String, PreparedStatement> preparedStatements = new HashMap<>();
 
@@ -30,6 +30,7 @@ public class Database {
 
     private void connectToDb(){
         try { conn = DriverManager.getConnection(connectionURL); }
-        catch (SQLException e) { e.printStackTrace(); }
+        catch (SQLException e) { e.printStackTrace();
+        }
     }
 }
