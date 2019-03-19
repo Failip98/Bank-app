@@ -7,7 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
 
+import javax.sound.midi.Soundbank;
+import java.awt.*;
 import java.io.IOException;
 
 public class AccountController {
@@ -15,11 +18,16 @@ public class AccountController {
     @FXML
     VBox transactionBox;
 
-    @FXML
+    @FXML private Button btn_myAccounts;
+    @FXML private Button btn_loadTransactions;
+
+
     private void initialize(){
         System.out.println("initialize account");
-        loadMoreTransactions();
+        //loadMoreTransactions();
+        btn_loadTransactions.setOnAction( e -> clickLoadTransactions());
     }
+
 
     void loadMoreTransactions(){
 //        List<Transaction> transactions = DB.getTransactions(accountId);
@@ -42,5 +50,5 @@ public class AccountController {
         }
     }
 
-    @FXML void clickLoadTransactions(Event e) { loadMoreTransactions(); }
+    @FXML void clickLoadTransactions() { loadMoreTransactions(); }
 }
