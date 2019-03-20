@@ -20,7 +20,6 @@ public class Transaction {
     @Column
     private java.sql.Timestamp date;
     private List<Transaction> transactionList;
-    //public String getMessage() { return message; }
     public String getOwner_id(){ return owner_id; }
     public String getTo(){ return to; }
     public String getFrom(){ return from; }

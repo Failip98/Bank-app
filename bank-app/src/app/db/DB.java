@@ -26,6 +26,51 @@ public abstract class DB {
         return result; // return User;
     }
 
+    public static List<Transaction> getTransactions(String person_id){
+        List<Transaction> result = null;
+        PreparedStatement ps = prep("SELECT * FROM transactions WHERE owner_id = ?");
+        try {
+            ps.setString(1, person_id);
+            result = (List<Transaction>)(List<?>) new ObjectMapper<>(Transaction.class).map(ps.executeQuery());
+        } catch (Exception e) { e.printStackTrace(); }
+        return result; // transactionslista
+    }
+
+    public static void givSallery(Double amount) {
+        PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = ? WHERE accounts.account_nr = '55'");
+        try {
+            ps.setDouble(1, amount);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addToTrnsaktion(String person_id, String to, String from, Double amount){
+        try {
+            PreparedStatement ps = prep("INSERT INTO transactions SET transactions.owner_id = ? , transactions.`to` = ?, transactions.`from` =?, transactions.amount = ?;");
+            ps.setString(1, person_id);
+            ps.setString(2, to);
+            ps.setString(3, from);
+            ps.setDouble(4, amount);
+            ps.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void delitMyAccount(String person_id, String name, String account_nr){
+        try {
+            PreparedStatement ps = prep("DELETE FROM accounts WHERE transactions.owner_id = ? AND accounts.NAME = ? AND accounts.account_nr = ?");
+            ps.setString(1, person_id);
+            ps.setString(2, name);
+            ps.setString(3, account_nr);
+            ps.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     /*public Transaction getTransaction(String person_id) {
         Transaction result = null;
@@ -40,15 +85,7 @@ public abstract class DB {
     }
 */
 
-    public static List<Transaction> getTransactions(String person_id){
-        List<Transaction> result = null;
-        PreparedStatement ps = prep("SELECT * FROM transactions WHERE owner_id = ?");
-        try {
-            ps.setString(1, person_id);
-            result = (List<Transaction>)(List<?>) new ObjectMapper<>(Transaction.class).map(ps.executeQuery());
-        } catch (Exception e) { e.printStackTrace(); }
-        return result; // transactionslista
-    }
+
 
     /*
         Example method with default parameters
