@@ -1,5 +1,6 @@
 package app.home;
 
+import app.Entities.User;
 import app.Main;
 import app.account.AccountController;
 import app.login.LoginController;

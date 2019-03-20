@@ -1,6 +1,8 @@
 package app.db;
 
+import app.Entities.Transaction;
 import app.Entities.User;
+import app.login.LoginController;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +24,30 @@ public abstract class DB {
             result = (User)new ObjectMapper<>(User.class).mapOne(ps.executeQuery());
         } catch (Exception e) { e.printStackTrace(); }
         return result; // return User;
+    }
+
+
+    /*public Transaction getTransaction(String person_id) {
+        Transaction result = null;
+        PreparedStatement ps = prep("SELECT * FROM transactions WHERE person_id = ?");
+        try {
+            ps.setString(1, person_id);
+            result = (Transaction)new ObjectMapper<>(Transaction.class).mapOne(ps.executeQuery());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+*/
+
+    public static List<Transaction> getTransactions(String person_id){
+        List<Transaction> result = null;
+        PreparedStatement ps = prep("SELECT * FROM transactions WHERE owner_id = ?");
+        try {
+            ps.setString(1, person_id);
+            result = (List<Transaction>)(List<?>) new ObjectMapper<>(Transaction.class).map(ps.executeQuery());
+        } catch (Exception e) { e.printStackTrace(); }
+        return result; // transactionslista
     }
 
     /*

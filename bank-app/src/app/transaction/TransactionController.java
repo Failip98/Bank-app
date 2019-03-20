@@ -5,6 +5,8 @@ import app.Entities.Transaction;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.util.List;
+
 public class TransactionController {
 
     @FXML Label amount;
@@ -15,10 +17,11 @@ public class TransactionController {
     @FXML
     private void initialize(){
         System.out.println("initialize transaction");
+
     }
 
     public void setTransaction(Transaction transaction) {
-        date.setText(transaction.getDate().toString());
+        date.setText(transaction.getDateAsString());
         to.setText(transaction.getTo());
         amount.setText(transaction.getAmount());
         from.setText(transaction.getFrom());
