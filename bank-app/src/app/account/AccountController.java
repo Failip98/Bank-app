@@ -28,7 +28,6 @@ public class AccountController {
 
     private void initialize(){
         System.out.println("initialize account");
-        //loadMoreTransactions();
         btn_loadTransactions.setOnAction( e -> clickLoadTransactions());
     }
 
@@ -36,8 +35,6 @@ public class AccountController {
     void loadMoreTransactions(){
 
         String s = LoginController.getUser().getPerson_id();
-        //DB.getTransactions(s);
-
         List<Transaction> transactions = DB.getTransactions(s);
                 //DB.getTransactions(accountId);
         System.out.println(transactions.size());
@@ -46,19 +43,25 @@ public class AccountController {
 
     void displayTransaction(List<Transaction> transactions){
         // For every transaction, do the following:
-        System.out.println();
-        try {
-            FXMLLoader loader = new FXMLLoader( getClass().getResource( "/app/transaction/transaction.fxml" ) );
-            Parent fxmlInstance = loader.load();
-            Scene scene = new Scene( fxmlInstance );
+        System.out.println(transactions.size());
+        int c = 0;
+        while (c < transactions.size())
+        {
+            try {
+                FXMLLoader loader = new FXMLLoader( getClass().getResource( "/app/transaction/transaction.fxml" ) );
+                Parent fxmlInstance = loader.load();
+                Scene scene = new Scene( fxmlInstance );
 
-            TransactionController controller = loader.getController();
-            controller.setTransaction(transactions.get(0));
+                TransactionController controller = loader.getController();
+                controller.setTransaction(transactions.get(c));
 
-            transactionBox.getChildren().add(scene.getRoot());
-        } catch (IOException e) {
-            e.printStackTrace();
+                transactionBox.getChildren().add(scene.getRoot());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            c ++;
         }
+
     }
 
     @FXML void clickLoadTransactions() { loadMoreTransactions(); }
