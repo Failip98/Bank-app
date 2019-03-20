@@ -2,6 +2,7 @@ package app.home;
 
 import app.Main;
 import app.account.AccountController;
+import app.login.LoginController;
 import app.transaction.TransactionController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,7 @@ public class HomeController {
         btn_loggin.setOnAction(e -> goToLoggin());
         btn_account.setOnAction(e -> goToAccount());
         btn_myAccounts.setOnAction(e -> goToMyAccount());
+        System.out.println(LoginController.getUser());
     }
     @FXML
     void goToMyAccount() {

@@ -22,7 +22,7 @@ public class Database {
     public PreparedStatement prepareStatement(String SQLQuery){
         PreparedStatement ps = preparedStatements.get(SQLQuery);
         if (ps == null) {
-            try { conn.prepareStatement(SQLQuery); }
+            try { ps = conn.prepareStatement(SQLQuery); }
             catch (SQLException e) { e.printStackTrace(); }
         }
         return ps;

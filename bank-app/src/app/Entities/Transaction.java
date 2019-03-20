@@ -2,7 +2,7 @@ package app.Entities;
 
 
 import app.annotations.Column;
-
+import java.sql.Time;
 import java.time.LocalDate;
 
 public class Transaction {

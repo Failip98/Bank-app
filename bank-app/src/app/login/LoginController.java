@@ -46,13 +46,12 @@ public class LoginController {
 
         System.out.println(person_id);
         System.out.println(password);
-
-        ///user = DB.getMatchingUser(person_id, password);
+        user = DB.getMatchingUser(person_id, password);
         if(user != null){
             goToHome();
         }else {
             System.out.println("ERROR LOGGIN FAIL");
-            goToHome();
+           //goToHome();
         }
     }
 

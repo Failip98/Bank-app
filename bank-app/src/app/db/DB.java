@@ -3,6 +3,7 @@ package app.db;
 import app.Entities.User;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 
 /** A Helper class for interacting with the Database using short-commands */
