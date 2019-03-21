@@ -71,6 +71,18 @@ public abstract class DB {
         }
     }
 
+    public static void renameMyAccount(String person_id, String account_nr, String newName){
+        try {
+            PreparedStatement ps = prep("UPDATE accounts SET accounts.NAME = ? WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
+            ps.setString(1, newName);
+            ps.setString(2, person_id);
+            ps.setString(3, account_nr);
+            ps.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     /*public Transaction getTransaction(String person_id) {
         Transaction result = null;
         PreparedStatement ps = prep("SELECT * FROM transactions WHERE person_id = ?");

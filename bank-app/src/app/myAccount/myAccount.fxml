@@ -10,13 +10,18 @@
    <children>
       <Button id="btn_sallery" fx:id="btn_sallery" mnemonicParsing="false" text="Sallery" GridPane.rowIndex="0" />
       <Button id="btn_deliteAccount" fx:id="btn_deliteAccount" mnemonicParsing="false" text="Delite Account" GridPane.rowIndex="1" />
-      <TextField id="TextField_delitAccount_nr" fx:id="TextField_delitAccount_nr" promptText="account_nr" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField id="TextField_delitAccount_nr" fx:id="TextField_delitAccount_nr" promptText="Account_nr" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button id="btn_renameAccount" fx:id="btn_renameAccount" mnemonicParsing="false" text="Rename Account" GridPane.rowIndex="2" />
+      <TextField id="TextField_oldnameAccount_nr" fx:id="TextField_oldnameAccount_nr" promptText="Account_nr" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+       <TextField id="TextField_newAccountname" fx:id="TextField_newAccountname" promptText="New Account Name" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
+      <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
    </rowConstraints>
