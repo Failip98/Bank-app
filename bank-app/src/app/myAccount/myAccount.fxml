@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.myAccount.myAccountController">
    <children>
-      <Button id="btn_sallery" fx:id="btn_sallery" mnemonicParsing="false" text="Sallery" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="Button" />
+      <Button id="btn_sallery" fx:id="btn_sallery" mnemonicParsing="false" text="Sallery" GridPane.rowIndex="0" />
+      <Button id="btn_deliteAccount" fx:id="btn_deliteAccount" mnemonicParsing="false" text="Delite Account" GridPane.rowIndex="1" />
+      <TextField id="TextField_delitAccount_nr" fx:id="TextField_delitAccount_nr" promptText="account_nr" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
    <columnConstraints>
+      <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>

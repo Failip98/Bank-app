@@ -60,12 +60,11 @@ public abstract class DB {
         }
     }
 
-    public static void delitMyAccount(String person_id, String name, String account_nr){
+    public static void delitMyAccount(String person_id, String account_nr){
         try {
-            PreparedStatement ps = prep("DELETE FROM accounts WHERE transactions.owner_id = ? AND accounts.NAME = ? AND accounts.account_nr = ?");
+            PreparedStatement ps = prep("DELETE FROM accounts WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
             ps.setString(1, person_id);
-            ps.setString(2, name);
-            ps.setString(3, account_nr);
+            ps.setString(2, account_nr);
             ps.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
