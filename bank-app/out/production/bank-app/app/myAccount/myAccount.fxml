@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.myAccount.myAccountController">
+<GridPane alignment="center" hgap="10" prefHeight="276.0" prefWidth="713.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.myAccount.myAccountController">
    <children>
       <Button id="btn_sallery" fx:id="btn_sallery" mnemonicParsing="false" text="Sallery" GridPane.rowIndex="0" />
        <Button id="btn_payment" fx:id="btn_payment" mnemonicParsing="false" text="Payment" GridPane.rowIndex="1" />
@@ -23,6 +23,9 @@
       <TextField id="TextField_switchAccountType" fx:id="TextField_switchAccountType" promptText="Account ID" GridPane.columnIndex="2" GridPane.rowIndex="5" />
       <Label id="Label_sallery" fx:id="Label_sallery" GridPane.columnIndex="1" />
       <Label id="Label_payment" fx:id="Label_payment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button id="btn_moveMoney" fx:id="btn_moveMoney" mnemonicParsing="false" text="Move Money" GridPane.rowIndex="6" />
+       <TextField id="TextField_moneyFrom" fx:id="TextField_moneyFrom" promptText="Move Money From Account Id" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+       <TextField id="TextField_moneyTo" fx:id="TextField_moneyTo" prefHeight="31.0" prefWidth="208.0" promptText="Move Money To Account Id" GridPane.columnIndex="2" GridPane.rowIndex="6" />
 
    </children>
    <columnConstraints>
@@ -31,6 +34,7 @@
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints />
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />

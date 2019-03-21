@@ -25,6 +25,9 @@ public class myAccountController {
     @FXML private TextField TextField_switchAccountType;
     @FXML private Label Label_sallery;
     @FXML private Label Label_payment;
+    @FXML private Button btn_moveMoney;
+    @FXML private TextField TextField_moneyFrom;
+    @FXML private TextField TextField_moneyTo;
     private String person_id = LoginController.getUser().getPerson_id();
     @FXML
     private void initialize(){
@@ -36,6 +39,7 @@ public class myAccountController {
         btn_newAccount.setOnAction(e -> createNewAccount());
         btn_switchSalleryAccount.setOnAction(e -> switchAccountType("sallery"));
         btn_switchCreditCardAccount.setOnAction(e -> switchAccountType("creditcard"));
+        btn_moveMoney.setOnAction(e -> moveMoney());
     }
 
     private void getSallery(){
@@ -104,6 +108,13 @@ public class myAccountController {
         String toSwichAccount_nr = TextField_switchAccountType.getText();
         DB.switchAccounttype(person_id,toSwichAccount_nr, accounttype);
         TextField_switchAccountType.clear();
+
+    }
+
+    private void moveMoney(){
+        String from = TextField_moneyFrom.getText();
+        String to = TextField_moneyFrom.getText();
+
 
     }
 }
