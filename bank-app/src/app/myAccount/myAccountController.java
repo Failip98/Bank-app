@@ -30,13 +30,13 @@ public class myAccountController {
 
     private void getSallery(){
         double d = 25000;
-        //Kalla på newTransaction
         DB.givSallery(d);
+        //newTransaction(d);
+
     }
 
     private void newTransaction(double amount){
-        double d = 10000;
-        DB.addToTrnsaktion(person_id,"55","99",d);
+        DB.addToTrnsaktion(person_id,"55","99",amount);
     }
 
     private void delitMyAccount(){

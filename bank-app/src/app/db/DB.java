@@ -37,7 +37,7 @@ public abstract class DB {
     }
 
     public static void givSallery(Double amount) {
-        PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = ? WHERE accounts.account_nr = '55'");
+        PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = accounts.amount+? WHERE accounts.account_nr = '55'");
         try {
             ps.setDouble(1, amount);
             ps.executeUpdate();
