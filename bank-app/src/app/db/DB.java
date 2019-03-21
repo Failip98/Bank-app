@@ -51,6 +51,8 @@ public abstract class DB {
         return result;
     }
 
+
+
     public static void givSallery(Double amount, String account_nr) {
         PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = accounts.amount+? WHERE accounts.account_nr = ?");
         try {
@@ -109,6 +111,19 @@ public abstract class DB {
             e.printStackTrace();
         }
     }
+
+    public static void switchAccounttype(String person_id, String account_nr, String accountType){
+        PreparedStatement ps = prep("UPDATE accounts SET accounts.accounttype = ? WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
+        try {
+            ps.setString(1, accountType);
+            ps.setString(2, person_id);
+            ps.setString(3, account_nr);
+            ps.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     public static void newAccount(String person_id, String accountName, String account_nr){
         PreparedStatement ps = prep("INSERT INTO accounts SET accounts.account_nr = ?, accounts.NAME = ?, accounts.owner_id = ?, accounts.amount = '0', accounts.accounttype= 'save'");

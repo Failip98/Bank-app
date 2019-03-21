@@ -4,6 +4,7 @@ import app.db.DB;
 import app.login.LoginController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import javax.sound.midi.Soundbank;
@@ -19,6 +20,11 @@ public class myAccountController {
     @FXML private TextField TextField_newAccountname;
     @FXML private Button btn_newAccount;
     @FXML private TextField TextField_accountName;
+    @FXML private Button btn_switchSalleryAccount;
+    @FXML private Button btn_switchCreditCardAccount;
+    @FXML private TextField TextField_switchAccountType;
+    @FXML private Label Label_sallery;
+    @FXML private Label Label_payment;
     private String person_id = LoginController.getUser().getPerson_id();
     @FXML
     private void initialize(){
@@ -28,7 +34,8 @@ public class myAccountController {
         btn_deliteAccount.setOnAction( e -> delitMyAccount());
         btn_renameAccount.setOnAction(e -> renameAccount());
         btn_newAccount.setOnAction(e -> createNewAccount());
-
+        btn_switchSalleryAccount.setOnAction(e -> switchAccountType("sallery"));
+        btn_switchCreditCardAccount.setOnAction(e -> switchAccountType("creditcard"));
     }
 
     private void getSallery(){
@@ -36,8 +43,13 @@ public class myAccountController {
         String from = "Bank";
         String accounttype = "sallery";
         Account account_nr = DB.getAccountnr(person_id, accounttype);
-        DB.givSallery(sallery, account_nr.getAccount_nr());
-        newTransaction(account_nr.getAccount_nr(),from,sallery);
+        if(account_nr != null){
+            DB.givSallery(sallery, account_nr.getAccount_nr());
+            newTransaction(account_nr.getAccount_nr(),from,sallery);
+            Label_sallery.setText("You got paid");
+        }else{
+            Label_sallery.setText("Error miss a Sallery Account ");
+        }
     }
 
     private void makeapayment(){
@@ -45,8 +57,15 @@ public class myAccountController {
         String to = "Store";
         String accounttype = "creditcard";
         Account account_nr = DB.getAccountnr(person_id, accounttype);
-        DB.storePayment(payment, account_nr.getAccount_nr());
-        newTransaction(to,account_nr.getAccount_nr(),payment);
+        System.out.println(account_nr);
+        if(account_nr != null){
+            DB.storePayment(payment, account_nr.getAccount_nr());
+            newTransaction(to,account_nr.getAccount_nr(),payment);
+            Label_payment.setText("Payment made");
+        }else{
+            Label_payment.setText("Error miss a Credit Card Account ");
+        }
+
     }
 
     private void newTransaction(String to, String from, double amount){
@@ -67,7 +86,6 @@ public class myAccountController {
         TextField_newAccountname.clear();
     }
 
-
     private void createNewAccount(){
         Random r = new Random();
         int max = 2147483647;
@@ -76,5 +94,16 @@ public class myAccountController {
         String name = TextField_accountName.getText();
         DB.newAccount(person_id,name,Integer.toString(account_nr));
         TextField_accountName.clear();
+    }
+
+    private void switchAccountType(String accounttype){
+        Account account_nr = DB.getAccountnr(person_id, accounttype);
+        if(account_nr != null){
+            DB.switchAccounttype(person_id,account_nr.getAccount_nr(), "save");
+        }
+        String toSwichAccount_nr = TextField_switchAccountType.getText();
+        DB.switchAccounttype(person_id,toSwichAccount_nr, accounttype);
+        TextField_switchAccountType.clear();
+
     }
 }

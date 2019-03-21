@@ -23,4 +23,8 @@ public class Account {
     public String getAccount_nr() {
         return account_nr;
     }
+
+    public String getAccounttype() {
+        return accounttype;
+    }
 }
