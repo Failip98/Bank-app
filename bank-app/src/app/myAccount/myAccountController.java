@@ -118,12 +118,12 @@ public class myAccountController {
         System.out.println(to);
         if (TextField_moneyFrom.getText() == null || TextField_moneyFrom.getText().trim().isEmpty() || TextField_moneyTo.getText() == null ||
                 TextField_moneyTo.getText().trim().isEmpty()){
+            Label_moveMoney.setText("Fill in information");
+        }else {
             DB.addPayment(amount, to);
             DB.subbtraktPayment(amount, from);
             newTransaction(to,from,amount);
             Label_moveMoney.setText("Done");
-        }else {
-            Label_moveMoney.setText("Fill in information");
         }
 
         TextField_moneyFrom.clear();
