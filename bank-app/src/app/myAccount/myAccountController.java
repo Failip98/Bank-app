@@ -1,4 +1,5 @@
 package app.myAccount;
+import app.Entities.Account;
 import app.db.DB;
 import app.login.LoginController;
 import javafx.fxml.FXML;
@@ -29,14 +30,17 @@ public class myAccountController {
     }
 
     private void getSallery(){
-        double d = 25000;
-        DB.givSallery(d);
-        //newTransaction(d);
+        double sallery = 25000;
+        String from = "Bank";
+        String accounttype = "sallery";
+        Account account_nr = DB.getAccountnr(person_id, accounttype);
+        DB.givSallery(sallery, account_nr.getAccount_nr());
+        newTransaction(account_nr.getAccount_nr(),from,sallery);
 
     }
 
-    private void newTransaction(double amount){
-        DB.addToTrnsaktion(person_id,"55","99",amount);
+    private void newTransaction(String to, String from, double amount){
+        DB.addToTrnsaktion(person_id,to,from,amount);
     }
 
     private void delitMyAccount(){

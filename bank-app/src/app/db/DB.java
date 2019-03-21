@@ -1,5 +1,6 @@
 package app.db;
 
+import app.Entities.Account;
 import app.Entities.Transaction;
 import app.Entities.User;
 import app.login.LoginController;
@@ -36,10 +37,25 @@ public abstract class DB {
         return result; // transactionslista
     }
 
-    public static void givSallery(Double amount) {
-        PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = accounts.amount+? WHERE accounts.account_nr = '55'");
+    public static Account getAccountnr(String person_id, String accounttype){
+        PreparedStatement ps = prep("SELECT accounts.account_nr FROM accounts WHERE accounts.owner_id = ? AND accounts.accounttype = ? ");
+        Account result = null;
+        try {
+            ps.setString(1,person_id);
+            ps.setString(2,accounttype);
+            result = (Account)new ObjectMapper<>(Account.class).mapOne(ps.executeQuery());
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static void givSallery(Double amount, String account_nr) {
+        PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = accounts.amount+? WHERE accounts.account_nr = ?");
         try {
             ps.setDouble(1, amount);
+            ps.setString(2, account_nr);
             ps.executeUpdate();
 
         } catch (Exception e) {
@@ -48,8 +64,8 @@ public abstract class DB {
     }
 
     public static void addToTrnsaktion(String person_id, String to, String from, Double amount){
+        PreparedStatement ps = prep("INSERT INTO transactions SET transactions.owner_id = ? , transactions.`to` = ?, transactions.`from` =?, transactions.amount = ?;");
         try {
-            PreparedStatement ps = prep("INSERT INTO transactions SET transactions.owner_id = ? , transactions.`to` = ?, transactions.`from` =?, transactions.amount = ?;");
             ps.setString(1, person_id);
             ps.setString(2, to);
             ps.setString(3, from);
@@ -61,8 +77,8 @@ public abstract class DB {
     }
 
     public static void delitMyAccount(String person_id, String account_nr){
+        PreparedStatement ps = prep("DELETE FROM accounts WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
         try {
-            PreparedStatement ps = prep("DELETE FROM accounts WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
             ps.setString(1, person_id);
             ps.setString(2, account_nr);
             ps.executeUpdate();
@@ -72,8 +88,8 @@ public abstract class DB {
     }
 
     public static void renameMyAccount(String person_id, String account_nr, String accountName){
+        PreparedStatement ps = prep("UPDATE accounts SET accounts.NAME = ? WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
         try {
-            PreparedStatement ps = prep("UPDATE accounts SET accounts.NAME = ? WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
             ps.setString(1, accountName);
             ps.setString(2, person_id);
             ps.setString(3, account_nr);
@@ -84,8 +100,8 @@ public abstract class DB {
     }
 
     public static void newAccount(String person_id, String accountName, String account_nr){
+        PreparedStatement ps = prep("INSERT INTO accounts SET accounts.account_nr = ?, accounts.NAME = ?, accounts.owner_id = ?, accounts.amount = '0', accounts.accounttype= 'save'");
         try {
-            PreparedStatement ps = prep("INSERT INTO accounts SET accounts.account_nr = ?, accounts.NAME = ?, accounts.owner_id = ?, accounts.amount = '0'");
             ps.setString(1, account_nr);
             ps.setString(2, accountName);
             ps.setString(3, person_id);

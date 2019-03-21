@@ -11,12 +11,16 @@ public class Account {
     @Column
     private String owner_id;
     @Column
-    private Float amaunt;
+    private Float amount;
     @Column
-    private String lock;
+    private String accounttype;
 
     @Override
     public String toString(){
-        return String.format("Accounts: { account_nr: %s, name: %s, owner_id: %s, amaunt: %d }", account_nr, name, owner_id, amaunt, lock);
+        return String.format("Accounts: { account_nr: %s, name: %s, owner_id: %s, amount: %d, accounttype: %s }", account_nr, name, owner_id, amount, accounttype);
+    }
+
+    public String getAccount_nr() {
+        return account_nr;
     }
 }
