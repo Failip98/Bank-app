@@ -71,14 +71,26 @@ public abstract class DB {
         }
     }
 
-    public static void renameMyAccount(String person_id, String account_nr, String newName){
+    public static void renameMyAccount(String person_id, String account_nr, String accountName){
         try {
             PreparedStatement ps = prep("UPDATE accounts SET accounts.NAME = ? WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
-            ps.setString(1, newName);
+            ps.setString(1, accountName);
             ps.setString(2, person_id);
             ps.setString(3, account_nr);
             ps.executeUpdate();
         }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void newAccount(String person_id, String accountName, String account_nr){
+        try {
+            PreparedStatement ps = prep("INSERT INTO accounts SET accounts.account_nr = ?, accounts.NAME = ?, accounts.owner_id = ?, accounts.amount = '0'");
+            ps.setString(1, account_nr);
+            ps.setString(2, accountName);
+            ps.setString(3, person_id);
+            ps.executeUpdate();
+        }catch (Exception e ){
             e.printStackTrace();
         }
     }
