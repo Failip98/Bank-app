@@ -11,6 +11,7 @@ import java.util.Random;
 
 public class myAccountController {
     @FXML private Button btn_sallery;
+    @FXML private Button btn_payment;
     @FXML private Button btn_deliteAccount;
     @FXML private TextField TextField_delitAccount_nr;
     @FXML private Button btn_renameAccount;
@@ -23,6 +24,7 @@ public class myAccountController {
     private void initialize(){
         System.out.println("initialize account");
         btn_sallery.setOnAction( e -> getSallery());
+        btn_payment.setOnAction(e -> makeapayment());
         btn_deliteAccount.setOnAction( e -> delitMyAccount());
         btn_renameAccount.setOnAction(e -> renameAccount());
         btn_newAccount.setOnAction(e -> createNewAccount());
@@ -36,7 +38,15 @@ public class myAccountController {
         Account account_nr = DB.getAccountnr(person_id, accounttype);
         DB.givSallery(sallery, account_nr.getAccount_nr());
         newTransaction(account_nr.getAccount_nr(),from,sallery);
+    }
 
+    private void makeapayment(){
+        double payment = 200;
+        String to = "Store";
+        String accounttype = "creditcard";
+        Account account_nr = DB.getAccountnr(person_id, accounttype);
+        DB.storePayment(payment, account_nr.getAccount_nr());
+        newTransaction(to,account_nr.getAccount_nr(),payment);
     }
 
     private void newTransaction(String to, String from, double amount){

@@ -9,13 +9,15 @@
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.myAccount.myAccountController">
    <children>
       <Button id="btn_sallery" fx:id="btn_sallery" mnemonicParsing="false" text="Sallery" GridPane.rowIndex="0" />
-      <Button id="btn_deliteAccount" fx:id="btn_deliteAccount" mnemonicParsing="false" text="Delite Account" GridPane.rowIndex="1" />
-      <TextField id="TextField_delitAccount_nr" fx:id="TextField_delitAccount_nr" promptText="Account_nr" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button id="btn_renameAccount" fx:id="btn_renameAccount" mnemonicParsing="false" text="Rename Account" GridPane.rowIndex="2" />
-      <TextField id="TextField_oldnameAccount_nr" fx:id="TextField_oldnameAccount_nr" promptText="Account_nr" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-       <TextField id="TextField_newAccountname" fx:id="TextField_newAccountname" promptText="New Account Name" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-      <Button id="btn_newAccount" fx:id="btn_newAccount" mnemonicParsing="false" text="New Account" GridPane.rowIndex="3" />
-      <TextField id="TextField_accountName" fx:id="TextField_accountName" promptText="Account Name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+       <Button id="btn_payment" fx:id="btn_payment" mnemonicParsing="false" text="Payment" GridPane.rowIndex="1"/>
+      <Button id="btn_deliteAccount" fx:id="btn_deliteAccount" mnemonicParsing="false" text="Delite Account" GridPane.rowIndex="2" />
+      <TextField id="TextField_delitAccount_nr" fx:id="TextField_delitAccount_nr" promptText="Account_nr" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button id="btn_renameAccount" fx:id="btn_renameAccount" mnemonicParsing="false" text="Rename Account" GridPane.rowIndex="3" />
+      <TextField id="TextField_oldnameAccount_nr" fx:id="TextField_oldnameAccount_nr" promptText="Account_nr" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+       <TextField id="TextField_newAccountname" fx:id="TextField_newAccountname" promptText="New Account Name" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Button id="btn_newAccount" fx:id="btn_newAccount" mnemonicParsing="false" text="New Account" GridPane.rowIndex="4" />
+      <TextField id="TextField_accountName" fx:id="TextField_accountName" promptText="Account Name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
    </children>
    <columnConstraints>
       <ColumnConstraints />

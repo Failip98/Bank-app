@@ -63,6 +63,17 @@ public abstract class DB {
         }
     }
 
+    public static void storePayment(Double amount, String account_nr){
+        PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = accounts.amount-? WHERE accounts.account_nr = ?");
+        try {
+            ps.setDouble(1, amount);
+            ps.setString(2, account_nr);
+            ps.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public static void addToTrnsaktion(String person_id, String to, String from, Double amount){
         PreparedStatement ps = prep("INSERT INTO transactions SET transactions.owner_id = ? , transactions.`to` = ?, transactions.`from` =?, transactions.amount = ?;");
         try {
