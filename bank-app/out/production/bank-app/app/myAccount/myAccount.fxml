@@ -26,6 +26,7 @@
       <Button id="btn_moveMoney" fx:id="btn_moveMoney" mnemonicParsing="false" text="Move Money" GridPane.rowIndex="6" />
        <TextField id="TextField_moneyFrom" fx:id="TextField_moneyFrom" promptText="Move Money From Account Id" GridPane.columnIndex="1" GridPane.rowIndex="6" />
        <TextField id="TextField_moneyTo" fx:id="TextField_moneyTo" prefHeight="31.0" prefWidth="208.0" promptText="Move Money To Account Id" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <Label id="Label_moveMoney" fx:id="Label_moveMoney" GridPane.columnIndex="3" GridPane.rowIndex="6"/>
 
    </children>
    <columnConstraints>

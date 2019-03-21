@@ -28,6 +28,7 @@ public class myAccountController {
     @FXML private Button btn_moveMoney;
     @FXML private TextField TextField_moneyFrom;
     @FXML private TextField TextField_moneyTo;
+    @FXML private Label Label_moveMoney;
     private String person_id = LoginController.getUser().getPerson_id();
     @FXML
     private void initialize(){
@@ -48,7 +49,7 @@ public class myAccountController {
         String accounttype = "sallery";
         Account account_nr = DB.getAccountnr(person_id, accounttype);
         if(account_nr != null){
-            DB.givSallery(sallery, account_nr.getAccount_nr());
+            DB.addPayment(sallery, account_nr.getAccount_nr());
             newTransaction(account_nr.getAccount_nr(),from,sallery);
             Label_sallery.setText("You got paid");
         }else{
@@ -63,7 +64,7 @@ public class myAccountController {
         Account account_nr = DB.getAccountnr(person_id, accounttype);
         System.out.println(account_nr);
         if(account_nr != null){
-            DB.storePayment(payment, account_nr.getAccount_nr());
+            DB.subbtraktPayment(payment, account_nr.getAccount_nr());
             newTransaction(to,account_nr.getAccount_nr(),payment);
             Label_payment.setText("Payment made");
         }else{
@@ -72,9 +73,7 @@ public class myAccountController {
 
     }
 
-    private void newTransaction(String to, String from, double amount){
-        DB.addToTrnsaktion(person_id,to,from,amount);
-    }
+
 
     private void delitMyAccount(){
         String account_nr = TextField_delitAccount_nr.getText();
@@ -112,9 +111,26 @@ public class myAccountController {
     }
 
     private void moveMoney(){
+        double amount = 500;
         String from = TextField_moneyFrom.getText();
-        String to = TextField_moneyFrom.getText();
+        String to = TextField_moneyTo.getText();
+        System.out.println(from);
+        System.out.println(to);
+        if (TextField_moneyFrom.getText() == null || TextField_moneyFrom.getText().trim().isEmpty() || TextField_moneyTo.getText() == null ||
+                TextField_moneyTo.getText().trim().isEmpty()){
+            DB.addPayment(amount, to);
+            DB.subbtraktPayment(amount, from);
+            newTransaction(to,from,amount);
+            Label_moveMoney.setText("Done");
+        }else {
+            Label_moveMoney.setText("Fill in information");
+        }
 
+        TextField_moneyFrom.clear();
+        TextField_moneyTo.clear();
+    }
 
+    private void newTransaction(String to, String from, double amount){
+        DB.addToTrnsaktion(person_id,to,from,amount);
     }
 }

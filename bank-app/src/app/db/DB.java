@@ -53,7 +53,7 @@ public abstract class DB {
 
 
 
-    public static void givSallery(Double amount, String account_nr) {
+    public static void addPayment(Double amount, String account_nr) {
         PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = accounts.amount+? WHERE accounts.account_nr = ?");
         try {
             ps.setDouble(1, amount);
@@ -65,7 +65,7 @@ public abstract class DB {
         }
     }
 
-    public static void storePayment(Double amount, String account_nr){
+    public static void subbtraktPayment(Double amount, String account_nr){
         PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = accounts.amount-? WHERE accounts.account_nr = ?");
         try {
             ps.setDouble(1, amount);
