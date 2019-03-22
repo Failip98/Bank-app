@@ -20,4 +20,5 @@ public class TransactionController {
         amount.setText(transaction.getAmount());
         from.setText(transaction.getFrom());
     }
+
 }
