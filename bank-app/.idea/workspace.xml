@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/account/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/account/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/account/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/account/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/home/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/home/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/home/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/home/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/login/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/myAccount/myAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/myAccount/myAccount.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/account/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/account/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/account/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/myAccount/myAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/myAccount/myAccount.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,71 +60,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccount.fxml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="355">
-              <caret line="29" column="57" lean-forward="true" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+              <caret line="29" column="51" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="51" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccountController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="105" column="13" lean-forward="true" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5706#5707#0" expanded="true" />
+                <element signature="e#5756#5757#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/account/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="81" column="3" lean-forward="true" selection-start-line="81" selection-start-column="3" selection-end-line="94" selection-end-column="5" />
+            <state relative-caret-position="190">
+              <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2904#2905#0" expanded="true" />
-                <element signature="e#2954#2955#0" expanded="true" />
+                <element signature="e#2568#2569#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/login/LoginController.java">
+        <entry file="file://$PROJECT_DIR$/src/app/account/account.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1420#1421#0" expanded="true" />
-                <element signature="e#1470#1471#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/home/home.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/home/HomeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/login/login.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="110" selection-start-line="9" selection-start-column="110" selection-end-line="9" selection-end-column="110" />
+            <state relative-caret-position="340">
+              <caret line="22" column="64" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="64" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -198,19 +164,19 @@
         <option value="$PROJECT_DIR$/src/app/Entities/Transaction.java" />
         <option value="$PROJECT_DIR$/src/app/db/ObjectMapper.java" />
         <option value="$PROJECT_DIR$/src/app/Entities/Account.java" />
-        <option value="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" />
         <option value="$PROJECT_DIR$/src/app/db/DB.java" />
         <option value="$PROJECT_DIR$/src/app/account/account.fxml" />
-        <option value="$PROJECT_DIR$/src/app/account/AccountController.java" />
         <option value="$PROJECT_DIR$/src/app/login/LoginController.java" />
         <option value="$PROJECT_DIR$/src/app/home/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/app/myAccount/myAccount.fxml" />
         <option value="$PROJECT_DIR$/src/app/home/home.fxml" />
+        <option value="$PROJECT_DIR$/src/app/myAccount/myAccount.fxml" />
+        <option value="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" />
+        <option value="$PROJECT_DIR$/src/app/account/AccountController.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -251,49 +217,7 @@
               <item name="bank-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bank-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bank-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bank-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bank-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bank-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bank-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bank-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bank-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bank-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bank-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="myAccount" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bank-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bank-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="transaction" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -312,7 +236,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553254843693" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553258946368" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files/Java/mysql-connector-java-8.0.15.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -323,8 +247,9 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Nodebite\Desktop\programmering\skolor\java18\bank-app\src\app\transaction" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="annotations" />
+      <recent name="app.Entities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Nodebite\Desktop\programmering\skolor\java18\bank-app\src\app\account" />
@@ -336,9 +261,8 @@
       <recent name="app.db.annotations" />
       <recent name="app.login" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="annotations" />
-      <recent name="app.Entities" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nodebite\Desktop\programmering\skolor\java18\bank-app\src\app\transaction" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -486,12 +410,12 @@
       <workItem from="1552985503031" duration="17083000" />
       <workItem from="1553068746977" duration="23598000" />
       <workItem from="1553154564978" duration="27347000" />
-      <workItem from="1553240156982" duration="10700000" />
+      <workItem from="1553240156982" duration="14942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80030000" />
+    <option name="totallyTimeSpent" value="84272000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -640,16 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1115">
-          <caret line="119" column="62" selection-start-line="119" selection-start-column="62" selection-end-line="119" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/db/ObjectMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
@@ -664,14 +578,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/account/account.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/Entities/Account.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -697,30 +603,6 @@
           <folding>
             <element signature="e#266#267#0" expanded="true" />
             <element signature="e#293#294#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/login/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1420#1421#0" expanded="true" />
-            <element signature="e#1470#1471#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/account/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="81" column="3" lean-forward="true" selection-start-line="81" selection-start-column="3" selection-end-line="94" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2904#2905#0" expanded="true" />
-            <element signature="e#2954#2955#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -762,10 +644,60 @@
     <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccount.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
-          <caret line="29" column="57" lean-forward="true" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+          <caret line="29" column="51" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="51" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/login/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="67" column="5" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="67" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1420#1421#0" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/account/account.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="64" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="64" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="105" column="13" lean-forward="true" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5706#5707#0" expanded="true" />
+            <element signature="e#5756#5757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="735" column="12" selection-start-line="735" selection-start-column="12" selection-end-line="735" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/account/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2568#2569#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

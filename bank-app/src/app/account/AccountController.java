@@ -1,5 +1,5 @@
 package app.account;
-
+import app.myAccount.*;
 import app.Entities.Account;
 import app.Entities.Transaction;
 import app.Main;
@@ -45,7 +45,6 @@ public class AccountController {
     void loadTransactions(int i){
         String account_id = TextField_account_id.getText();
         List<Account> accounts = DB.getOwnedAccounts(person_id);
-
         if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_id))){
             List<Transaction> transactions = DB.getTransactions(account_id);
             displayTransaction(transactions,i);
@@ -56,29 +55,28 @@ public class AccountController {
     }
 
     void displayTransaction(List<Transaction> transactions, int show){
-        // For every transaction, do the following:
-        int c = 0;
-        if(show != 0){
+        if (show != 0) {
+            transactions = transactions.subList(0, Math.min(show, transactions.size()));
         }
-        else{
-            show = transactions.size();
-        }
-        while (c < show)
-        {
+
+        for (Transaction t : transactions) {
             try {
                 FXMLLoader loader = new FXMLLoader( getClass().getResource( "/app/transaction/transaction.fxml" ) );
                 Parent fxmlInstance = loader.load();
                 Scene scene = new Scene( fxmlInstance );
                 TransactionController controller = loader.getController();
-                controller.setTransaction(transactions.get(c));
+                controller.setTransaction(t);
                 transactionBox.getChildren().add(scene.getRoot());
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            c ++;
         }
 
     }
+    private void goToHome() {
+        switchScene("/app/home/home.fxml");
+    }
+
     private void switchScene(String pathname) {
         try {
             Parent bla = FXMLLoader.load(getClass().getResource(pathname));
@@ -90,7 +88,4 @@ public class AccountController {
         }
     }
 
-    private void goToHome() {
-        switchScene("/app/home/home.fxml");
-    }
 }

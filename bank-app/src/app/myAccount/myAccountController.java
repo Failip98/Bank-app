@@ -1,5 +1,6 @@
 package app.myAccount;
 import app.Entities.Account;
+import app.Entities.Transaction;
 import app.Main;
 import app.db.DB;
 import app.login.LoginController;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 
 import javax.sound.midi.Soundbank;
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 
 public class myAccountController {
@@ -80,18 +82,30 @@ public class myAccountController {
 
     }
 
-
-
     private void delitMyAccount(){
         String account_nr = TextField_delitAccount_nr.getText();
-        DB.delitMyAccount(person_id,account_nr);
-        TextField_delitAccount_nr.clear();
+        List<Account> accounts = DB.getOwnedAccounts(person_id);
+        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
+            DB.delitMyAccount(person_id,account_nr);
+            TextField_delitAccount_nr.clear();
+        }
+        else{
+            System.out.println("Error");
+        }
+
     }
 
     private void renameAccount(){
+
         String account_nr = TextField_oldnameAccount_nr.getText();
         String newAccountName = TextField_newAccountname.getText();
-        DB.renameMyAccount(person_id, account_nr, newAccountName );
+        List<Account> accounts = DB.getOwnedAccounts(person_id);
+        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
+            DB.renameMyAccount(person_id, account_nr, newAccountName );
+        }
+        else{
+            System.out.println("Error");
+        }
         TextField_delitAccount_nr.clear();
         TextField_newAccountname.clear();
     }
@@ -141,7 +155,7 @@ public class myAccountController {
         DB.addToTrnsaktion(person_id,to,from,amount);
     }
 
-    public void goToHome() {
+    private void goToHome() {
         switchScene("/app/home/home.fxml");
     }
 
