@@ -1,6 +1,4 @@
 package app.Entities;
-
-
 import app.annotations.Column;
 
 public class User {
@@ -12,7 +10,6 @@ public class User {
     private String surname;
     @Column
     private String password;
-
 
     public String getName() {
         return name;

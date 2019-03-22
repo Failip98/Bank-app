@@ -1,5 +1,4 @@
 package app.db;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,12 +10,12 @@ public class Database {
     public static Database getInstance() {
         return ourInstance;
     }
+
     private Database() { connectToDb(); }
 
     final String connectionURL = "jdbc:mysql://localhost/bank-app?user=root&password=Filip9808 &serverTimezone=UTC";
     private Connection conn = null;
     private HashMap<String, PreparedStatement> preparedStatements = new HashMap<>();
-
 
     /** Returns a cached PreparedStatement if possible, else caches it for future use */
     public PreparedStatement prepareStatement(String SQLQuery){

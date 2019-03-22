@@ -1,6 +1,5 @@
 package app.myAccount;
 import app.Entities.Account;
-import app.Entities.Transaction;
 import app.Main;
 import app.db.DB;
 import app.login.LoginController;
@@ -11,8 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -58,7 +55,6 @@ public class myAccountController {
         Label_moveMoney.setText(null);
         Label_payment.setText(null);
     }
-
 
     private void getSallery(){
         clearLabel();
@@ -167,8 +163,6 @@ public class myAccountController {
             {
                 System.out.println("Error");
             }
-
-
         }
         TextField_moneyFrom.clear();
         TextField_moneyTo.clear();

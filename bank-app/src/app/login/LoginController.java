@@ -1,6 +1,4 @@
 package app.login;
-
-
 import app.Entities.User;
 import app.Main;
 import app.db.DB;
@@ -8,10 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import java.awt.*;
 import java.io.IOException;
 
 public class LoginController {
@@ -41,7 +37,6 @@ public class LoginController {
     private void loggInVerifier() {
         String person_id = textField_id.getText();
         String password = textField_password.getText();
-
         System.out.println(person_id);
         System.out.println(password);
         user = DB.getMatchingUser(person_id, password);

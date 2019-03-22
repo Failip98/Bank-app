@@ -1,12 +1,8 @@
 package app.db;
-
 import app.Entities.Account;
 import app.Entities.Transaction;
 import app.Entities.User;
-import app.login.LoginController;
-
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
 /** A Helper class for interacting with the Database using short-commands */
@@ -48,8 +44,6 @@ public abstract class DB {
         }
     }
 
-
-
     public static Account getAccountnr(String person_id, String accounttype){
         PreparedStatement ps = prep("SELECT accounts.account_nr FROM accounts WHERE accounts.owner_id = ? AND accounts.accounttype = ? ");
         Account result = null;
@@ -63,8 +57,6 @@ public abstract class DB {
         }
         return result;
     }
-
-
 
     public static void addPayment(Double amount, String account_nr) {
         PreparedStatement ps = prep("UPDATE accounts SET accounts.amount = accounts.amount+? WHERE accounts.account_nr = ?");
@@ -101,8 +93,6 @@ public abstract class DB {
         }
     }
 
-
-
     public static void renameMyAccount(String person_id, String account_nr, String accountName){
         PreparedStatement ps = prep("UPDATE accounts SET accounts.NAME = ? WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
         try {
@@ -126,7 +116,6 @@ public abstract class DB {
             e.printStackTrace();
         }
     }
-
 
     public static void newAccount(String person_id, String accountName, String account_nr){
         PreparedStatement ps = prep("INSERT INTO accounts SET accounts.account_nr = ?, accounts.NAME = ?, accounts.owner_id = ?, accounts.amount = '0', accounts.accounttype= 'save'");
@@ -165,8 +154,6 @@ public abstract class DB {
     }
 */
 
-
-
     /*
         Example method with default parameters
     public static List<Transaction> getTransactions(int accountId){ return getTransactions(accountId, 0, 10); }
@@ -180,6 +167,5 @@ public abstract class DB {
         return result; // return User;
     }
     */
-
 
 }

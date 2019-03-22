@@ -1,28 +1,22 @@
 package app.home;
-
-import app.Entities.User;
 import app.Main;
-import app.account.AccountController;
 import app.login.LoginController;
-import app.transaction.TransactionController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-
 import java.io.IOException;
 
 public class HomeController {
-
-
-    @FXML private Button btn_loggin;
+    @FXML private Button btn_loggout;
     @FXML private Button btn_account;
     @FXML private Button btn_myAccounts;
+
     @FXML
     void initialize(){
         // load accounts from db using LoginController.user.getId() and display them
-        btn_loggin.setOnAction(e -> goToLoggin());
+        btn_loggout.setOnAction(e -> goToLoggOut());
         btn_account.setOnAction(e -> goToAccount());
         btn_myAccounts.setOnAction(e -> goToMyAccount());
         System.out.println(LoginController.getUser());
@@ -38,11 +32,10 @@ public class HomeController {
         nextSage(loader, "main");
     }
 
-    private void goToLoggin(){
+    private void goToLoggOut(){
         FXMLLoader loader = new FXMLLoader( getClass().getResource( "/app/login/login.fxml" ) );
         nextSage(loader, "loggin");
     }
-
 
     private void nextSage (FXMLLoader loader, String stage){
         try {
@@ -53,7 +46,6 @@ public class HomeController {
             }else {
                 scene = new Scene( fxmlInstance, 600, 400 );
             }
-
             // Make sure that you display "the correct account" based on which one you clicked on
 //            AccountController controller = loader.getController();
 //            controller.setAccount(accountFromDB);
@@ -66,7 +58,5 @@ public class HomeController {
         }catch (IOException e){
             e.printStackTrace();
         }
-
-
     }
 }
