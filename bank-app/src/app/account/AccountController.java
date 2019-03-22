@@ -42,7 +42,7 @@ public class AccountController {
     }
 
 
-    void loadTransactions(int i){
+    private void loadTransactions(int i){
         String account_id = TextField_account_id.getText();
         List<Account> accounts = DB.getOwnedAccounts(person_id);
         if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_id))){
@@ -54,7 +54,7 @@ public class AccountController {
         }
     }
 
-    void displayTransaction(List<Transaction> transactions, int show){
+    private void displayTransaction(List<Transaction> transactions, int show){
         if (show != 0) {
             transactions = transactions.subList(0, Math.min(show, transactions.size()));
         }

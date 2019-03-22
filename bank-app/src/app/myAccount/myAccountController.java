@@ -148,18 +148,27 @@ public class myAccountController {
                 TextField_moneyTo.getText().trim().isEmpty() || TextField_amount.getText() == null || TextField_amount.getText().trim().isEmpty()){
             Label_moveMoney.setText("Fill in information");
         }else {
-            double amount = Double.parseDouble(TextField_amount.getText());
-            String from = TextField_moneyFrom.getText();
-            String to = TextField_moneyTo.getText();
-            if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(from))){
-                DB.addPayment(amount, to);
-                DB.subbtraktPayment(amount, from);
-                newTransaction(to,from,amount);
-                Label_moveMoney.setText("Done");
+            try
+            {
+                double amount = Double.parseDouble(TextField_amount.getText());
+                String from = TextField_moneyFrom.getText();
+                String to = TextField_moneyTo.getText();
+                if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(from))){
+                    DB.addPayment(amount, to);
+                    DB.subbtraktPayment(amount, from);
+                    newTransaction(to,from,amount);
+                    Label_moveMoney.setText("Done");
+                }
+                else{
+                    System.out.println("Error");
+                }
             }
-            else{
+            catch (NullPointerException | NumberFormatException ex)
+            {
                 System.out.println("Error");
             }
+
+
         }
         TextField_moneyFrom.clear();
         TextField_moneyTo.clear();
