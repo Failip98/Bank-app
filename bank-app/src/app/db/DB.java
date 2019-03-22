@@ -90,12 +90,11 @@ public abstract class DB {
     }
 
     public static void addToTrnsaktion(String person_id, String to, String from, Double amount){
-        PreparedStatement ps = prep("INSERT INTO transactions SET transactions.owner_id = ? , transactions.`to` = ?, transactions.`from` =?, transactions.amount = ?;");
+        PreparedStatement ps = prep("INSERT INTO transactions SET  transactions.`to` = ?, transactions.`from` =?, transactions.amount = ?;");
         try {
-            ps.setString(1, person_id);
-            ps.setString(2, to);
-            ps.setString(3, from);
-            ps.setDouble(4, amount);
+            ps.setString(1, to);
+            ps.setString(2, from);
+            ps.setDouble(3, amount);
             ps.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();

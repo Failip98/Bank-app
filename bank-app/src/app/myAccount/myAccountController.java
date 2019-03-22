@@ -37,6 +37,7 @@ public class myAccountController {
     @FXML private TextField TextField_moneyTo;
     @FXML private Label Label_moveMoney;
     @FXML private Button btn_backhome;
+    @FXML private TextField TextField_amount;
     private String person_id = LoginController.getUser().getPerson_id();
     @FXML
     private void initialize(){
@@ -52,7 +53,15 @@ public class myAccountController {
         btn_backhome.setOnAction(e -> goToHome());
     }
 
+    private void clearLabel(){
+        Label_sallery.setText(null);
+        Label_moveMoney.setText(null);
+        Label_payment.setText(null);
+    }
+
+
     private void getSallery(){
+        clearLabel();
         double sallery = 25000;
         String from = "Bank";
         String accounttype = "sallery";
@@ -67,6 +76,7 @@ public class myAccountController {
     }
 
     private void makeapayment(){
+        clearLabel();
         double payment = 200;
         String to = "Store";
         String accounttype = "creditcard";
@@ -79,10 +89,10 @@ public class myAccountController {
         }else{
             Label_payment.setText("Error miss a Credit Card Account ");
         }
-
     }
 
     private void delitMyAccount(){
+        clearLabel();
         String account_nr = TextField_delitAccount_nr.getText();
         List<Account> accounts = DB.getOwnedAccounts(person_id);
         if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
@@ -96,7 +106,7 @@ public class myAccountController {
     }
 
     private void renameAccount(){
-
+        clearLabel();
         String account_nr = TextField_oldnameAccount_nr.getText();
         String newAccountName = TextField_newAccountname.getText();
         List<Account> accounts = DB.getOwnedAccounts(person_id);
@@ -111,6 +121,7 @@ public class myAccountController {
     }
 
     private void createNewAccount(){
+        clearLabel();
         Random r = new Random();
         int max = 2147483647;
         int min = 0;
@@ -128,27 +139,31 @@ public class myAccountController {
         String toSwichAccount_nr = TextField_switchAccountType.getText();
         DB.switchAccounttype(person_id,toSwichAccount_nr, accounttype);
         TextField_switchAccountType.clear();
-
     }
 
     private void moveMoney(){
-        double amount = 500;
-        String from = TextField_moneyFrom.getText();
-        String to = TextField_moneyTo.getText();
-        System.out.println(from);
-        System.out.println(to);
+        clearLabel();
+        List<Account> accounts = DB.getOwnedAccounts(person_id);
         if (TextField_moneyFrom.getText() == null || TextField_moneyFrom.getText().trim().isEmpty() || TextField_moneyTo.getText() == null ||
-                TextField_moneyTo.getText().trim().isEmpty()){
+                TextField_moneyTo.getText().trim().isEmpty() || TextField_amount.getText() == null || TextField_amount.getText().trim().isEmpty()){
             Label_moveMoney.setText("Fill in information");
         }else {
-            DB.addPayment(amount, to);
-            DB.subbtraktPayment(amount, from);
-            newTransaction(to,from,amount);
-            Label_moveMoney.setText("Done");
+            double amount = Double.parseDouble(TextField_amount.getText());
+            String from = TextField_moneyFrom.getText();
+            String to = TextField_moneyTo.getText();
+            if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(from))){
+                DB.addPayment(amount, to);
+                DB.subbtraktPayment(amount, from);
+                newTransaction(to,from,amount);
+                Label_moveMoney.setText("Done");
+            }
+            else{
+                System.out.println("Error");
+            }
         }
-
         TextField_moneyFrom.clear();
         TextField_moneyTo.clear();
+        TextField_amount.clear();
     }
 
     private void newTransaction(String to, String from, double amount){

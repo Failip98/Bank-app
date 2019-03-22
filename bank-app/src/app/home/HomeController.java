@@ -49,7 +49,7 @@ public class HomeController {
             Parent fxmlInstance = loader.load();
             Scene scene;
             if (stage != "loggin"){
-                scene = new Scene( fxmlInstance, 800, 600 );
+                scene = new Scene( fxmlInstance, 900, 600 );
             }else {
                 scene = new Scene( fxmlInstance, 600, 400 );
             }
