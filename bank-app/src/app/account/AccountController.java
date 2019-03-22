@@ -1,6 +1,7 @@
 package app.account;
 
 
+import app.Entities.Account;
 import app.Entities.Transaction;
 import app.db.DB;
 import app.login.LoginController;
@@ -10,51 +11,65 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
 
 import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AccountController {
 
     @FXML
     VBox transactionBox;
 
-    //@FXML private Button btn_myAccounts;
-    @FXML private Button btn_loadTransactions;
 
+    @FXML private Button btn_loadAllTransactions;
+    @FXML private Button btn_loadTenTransactions;
+    @FXML private TextField TextField_account_id;
 
+    private String person_id = LoginController.getUser().getPerson_id();
+    @FXML
     private void initialize(){
         System.out.println("initialize account");
-        btn_loadTransactions.setOnAction( e -> clickLoadTransactions());
+        btn_loadAllTransactions.setOnAction( e -> loadTransactions(0));
+        btn_loadTenTransactions.setOnAction(e -> loadTransactions(10));
     }
 
 
-    void loadMoreTransactions(){
+    void loadTransactions(int i){
+        String account_id = TextField_account_id.getText();
+        List<Account> accounts = DB.getOwnedAccounts(person_id);
 
-        String s = LoginController.getUser().getPerson_id();
-        List<Transaction> transactions = DB.getTransactions(s);
-                //DB.getTransactions(accountId);
-        System.out.println(transactions.size());
-        displayTransaction(transactions);
+        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_id))){
+            List<Transaction> transactions = DB.getTransactions(account_id);
+            displayTransaction(transactions,i);
+        }
+        else{
+            System.out.println("Error");
+        }
     }
 
-    void displayTransaction(List<Transaction> transactions){
+
+
+    void displayTransaction(List<Transaction> transactions, int show){
         // For every transaction, do the following:
-        System.out.println(transactions.size());
         int c = 0;
-        while (c < transactions.size())
+        if(show != 0){
+        }
+        else{
+            show = transactions.size();
+        }
+        while (c < show)
         {
             try {
                 FXMLLoader loader = new FXMLLoader( getClass().getResource( "/app/transaction/transaction.fxml" ) );
                 Parent fxmlInstance = loader.load();
                 Scene scene = new Scene( fxmlInstance );
-
                 TransactionController controller = loader.getController();
                 controller.setTransaction(transactions.get(c));
-
                 transactionBox.getChildren().add(scene.getRoot());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -64,5 +79,5 @@ public class AccountController {
 
     }
 
-    @FXML void clickLoadTransactions() { loadMoreTransactions(); }
+    //@FXML void clickLoadTransactions() { loadMoreTransactions(); }
 }

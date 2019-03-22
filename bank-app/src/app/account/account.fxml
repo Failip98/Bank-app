@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -16,7 +17,9 @@
          <left>
             <VBox BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#clickLoadTransactions" text="Load Transactions" />
+                  <TextField id="TextField_account_id" fx:id="TextField_account_id" promptText="Account id" />
+                  <Button id="btn_loadTenTransactions" fx:id="btn_loadTenTransactions" mnemonicParsing="false" text="Load Last TenTransactions" />
+                  <Button id="btn_loadAllTransactions" fx:id="btn_loadAllTransactions" mnemonicParsing="false" text="Load All Transactions" />
                </children>
             </VBox>
          </left>

@@ -27,11 +27,12 @@ public abstract class DB {
         return result; // return User;
     }
 
-    public static List<Transaction> getTransactions(String person_id){
+    public static List<Transaction> getTransactions( String account_nr){
         List<Transaction> result = null;
-        PreparedStatement ps = prep("SELECT * FROM transactions WHERE owner_id = ?");
+        PreparedStatement ps = prep("SELECT * FROM transactions WHERE transactions.`to` = ? OR transactions.`from` = ? ORDER BY transactions.date DESC;");
         try {
-            ps.setString(1, person_id);
+            ps.setString(1, account_nr);
+            ps.setString(2, account_nr);
             result = (List<Transaction>)(List<?>) new ObjectMapper<>(Transaction.class).map(ps.executeQuery());
         } catch (Exception e) { e.printStackTrace(); }
         return result; // transactionslista
@@ -135,6 +136,18 @@ public abstract class DB {
         }catch (Exception e ){
             e.printStackTrace();
         }
+    }
+
+    public static List<Account> getOwnedAccounts(String owner_id){
+        List<Account> result = null;
+        PreparedStatement ps = prep ("SELECT * FROM accounts WHERE accounts.owner_id = ? ");
+        try {
+            ps.setString(1, owner_id);
+            result = (List<Account>)(List<?>)new ObjectMapper<>(Account.class).map(ps.executeQuery());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return result;
     }
 
     /*public Transaction getTransaction(String person_id) {
