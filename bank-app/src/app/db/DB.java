@@ -38,6 +38,18 @@ public abstract class DB {
         return result; // transactionslista
     }
 
+    public static void delitMyAccount( String account_nr){
+        PreparedStatement ps = prep("DELETE FROM accounts WHERE accounts.account_nr = ?");
+        try {
+            ps.setString(1, account_nr);
+            ps.executeUpdate();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+
     public static Account getAccountnr(String person_id, String accounttype){
         PreparedStatement ps = prep("SELECT accounts.account_nr FROM accounts WHERE accounts.owner_id = ? AND accounts.accounttype = ? ");
         Account result = null;
@@ -90,16 +102,7 @@ public abstract class DB {
         }
     }
 
-    public static void delitMyAccount(String person_id, String account_nr){
-        PreparedStatement ps = prep("DELETE FROM accounts WHERE accounts.owner_id = ? AND accounts.account_nr = ?");
-        try {
-            ps.setString(1, person_id);
-            ps.setString(2, account_nr);
-            ps.executeUpdate();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+
 
     public static void renameMyAccount(String person_id, String account_nr, String accountName){
         PreparedStatement ps = prep("UPDATE accounts SET accounts.NAME = ? WHERE accounts.owner_id = ? AND accounts.account_nr = ?");

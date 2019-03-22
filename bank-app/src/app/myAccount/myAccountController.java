@@ -86,13 +86,13 @@ public class myAccountController {
         String account_nr = TextField_delitAccount_nr.getText();
         List<Account> accounts = DB.getOwnedAccounts(person_id);
         if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
-            DB.delitMyAccount(person_id,account_nr);
+            DB.delitMyAccount(account_nr);
             TextField_delitAccount_nr.clear();
         }
         else{
             System.out.println("Error");
         }
-
+        TextField_delitAccount_nr.clear();
     }
 
     private void renameAccount(){
@@ -106,7 +106,7 @@ public class myAccountController {
         else{
             System.out.println("Error");
         }
-        TextField_delitAccount_nr.clear();
+        TextField_oldnameAccount_nr.clear();
         TextField_newAccountname.clear();
     }
 
