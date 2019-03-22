@@ -1,21 +1,42 @@
 package app.Entities;
-
-
 import app.annotations.Column;
-
-import java.time.LocalDate;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Transaction {
     @Column
-    private long id;
+    private String owner_id;
     @Column
-    private String message;
+    private String to;
     @Column
-    private float amount;
+    private String from;
     @Column
-    private LocalDate date;
+    private double amount;
+    @Column
+    private java.sql.Timestamp date;
 
-    public String getMessage() { return message; }
-    public float getAmount() { return amount; }
-    public LocalDate getDate() { return date; }
+    private List<Transaction> transactionList;
+
+    public String getOwner_id(){ return owner_id; }
+
+    public String getTo(){ return to; }
+
+    public String getFrom(){ return from; }
+
+    public String getAmount() {
+        return Double.toString(amount);
+    }
+
+    public ZonedDateTime getDate() {
+        return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.of("Europe/Berlin"));
+    }
+
+    public String getDateAsString(){
+        return getDate().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME).replace('T', ' ');
+    }
+
+    public List<Transaction> getList(){
+        return transactionList;
+    }
 }
