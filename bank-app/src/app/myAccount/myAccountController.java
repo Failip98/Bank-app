@@ -1,13 +1,18 @@
 package app.myAccount;
 import app.Entities.Account;
+import app.Main;
 import app.db.DB;
 import app.login.LoginController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import javax.sound.midi.Soundbank;
+import java.io.IOException;
 import java.util.Random;
 
 public class myAccountController {
@@ -29,6 +34,7 @@ public class myAccountController {
     @FXML private TextField TextField_moneyFrom;
     @FXML private TextField TextField_moneyTo;
     @FXML private Label Label_moveMoney;
+    @FXML private Button btn_backhome;
     private String person_id = LoginController.getUser().getPerson_id();
     @FXML
     private void initialize(){
@@ -41,6 +47,7 @@ public class myAccountController {
         btn_switchSalleryAccount.setOnAction(e -> switchAccountType("sallery"));
         btn_switchCreditCardAccount.setOnAction(e -> switchAccountType("creditcard"));
         btn_moveMoney.setOnAction(e -> moveMoney());
+        btn_backhome.setOnAction(e -> goToHome());
     }
 
     private void getSallery(){
@@ -132,5 +139,20 @@ public class myAccountController {
 
     private void newTransaction(String to, String from, double amount){
         DB.addToTrnsaktion(person_id,to,from,amount);
+    }
+
+    public void goToHome() {
+        switchScene("/app/home/home.fxml");
+    }
+
+    private void switchScene(String pathname) {
+        try {
+            Parent bla = FXMLLoader.load(getClass().getResource(pathname));
+            Scene scene = new Scene(bla, 600, 400);
+            Main.stage.setScene(scene);
+            Main.stage.show();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
     }
 }

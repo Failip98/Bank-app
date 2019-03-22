@@ -20,6 +20,7 @@
                   <TextField id="TextField_account_id" fx:id="TextField_account_id" promptText="Account id" />
                   <Button id="btn_loadTenTransactions" fx:id="btn_loadTenTransactions" mnemonicParsing="false" text="Load Last TenTransactions" />
                   <Button id="btn_loadAllTransactions" fx:id="btn_loadAllTransactions" mnemonicParsing="false" text="Load All Transactions" />
+                  <Button id="btn_backhome" fx:id="btn_backhome" mnemonicParsing="false" text="Back Home" />
                </children>
             </VBox>
          </left>

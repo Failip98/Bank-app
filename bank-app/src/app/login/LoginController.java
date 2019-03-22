@@ -21,7 +21,6 @@ public class LoginController {
     public static User getUser() { return user; }
 
     @FXML private TextField textField_id;
-
     @FXML private TextField textField_password;
     @FXML private Button btn_loggin;
 
@@ -37,7 +36,6 @@ public class LoginController {
     private void initialize() {
         System.out.println("initialize login");
         btn_loggin.setOnAction( e -> loggInVerifier());
-        loadUser();
     }
 
     private void loggInVerifier() {
@@ -51,17 +49,14 @@ public class LoginController {
             goToHome();
         }else {
             System.out.println("ERROR LOGGIN FAIL");
-           //goToHome();
         }
     }
 
-    void loadUser(){
-//        user = DB.getMatchingUser("Kalle", "abc123?");
-        // if null display error
-        // else switchScene to Home
+    public void goToHome() {
+        switchScene("/app/home/home.fxml");
     }
 
-    void switchScene(String pathname) {
+    private void switchScene(String pathname) {
         try {
             Parent bla = FXMLLoader.load(getClass().getResource(pathname));
             Scene scene = new Scene(bla, 600, 400);
@@ -71,6 +66,4 @@ public class LoginController {
             e1.printStackTrace();
         }
     }
-
-    @FXML void goToHome() { switchScene("/app/home/home.fxml"); }
 }

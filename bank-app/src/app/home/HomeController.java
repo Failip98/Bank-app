@@ -27,37 +27,24 @@ public class HomeController {
         btn_myAccounts.setOnAction(e -> goToMyAccount());
         System.out.println(LoginController.getUser());
     }
-    @FXML
-    void goToMyAccount() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/myaccount/myAccount.fxml"));
-            nextSage(loader, "main");
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    void goToAccount() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/account/account.fxml"));
-            nextSage(loader, "main");
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-    @FXML
-    void goToLoggin(){
-        try {
-            FXMLLoader loader = new FXMLLoader( getClass().getResource( "/app/login/login.fxml" ) );
-            nextSage(loader, "loggin");
-        }catch (IOException e){
-            e.printStackTrace();
-        }
 
+    private void goToMyAccount() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/myaccount/myAccount.fxml"));
+        nextSage(loader, "main");
+    }
+
+    private void goToAccount() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/account/account.fxml"));
+        nextSage(loader, "main");
+    }
+
+    private void goToLoggin(){
+        FXMLLoader loader = new FXMLLoader( getClass().getResource( "/app/login/login.fxml" ) );
+        nextSage(loader, "loggin");
     }
 
 
-    private void nextSage (FXMLLoader loader, String stage) throws IOException{
+    private void nextSage (FXMLLoader loader, String stage){
         try {
             Parent fxmlInstance = loader.load();
             Scene scene;

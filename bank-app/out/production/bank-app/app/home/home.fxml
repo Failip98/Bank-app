@@ -8,8 +8,8 @@
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.home.HomeController">
    <children>
       <Button fx:id="btn_account" mnemonicParsing="false" text="Transactin" />
-      <Button fx:id="btn_loggin" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Loggin" GridPane.rowIndex="1" />
-      <Button fx:id="btn_myAccounts" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"  text="My Accounts" GridPane.rowIndex="2" />
+      <Button fx:id="btn_myAccounts" layoutX="10.0" layoutY="10.0" mnemonicParsing="false"  text="My Accounts" GridPane.rowIndex="1" />
+      <Button fx:id="btn_loggin" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Loggin" GridPane.rowIndex="2" />
    </children>
    <columnConstraints>
       <ColumnConstraints />

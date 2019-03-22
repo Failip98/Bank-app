@@ -1,9 +1,10 @@
 package app.account;
 
-
 import app.Entities.Account;
 import app.Entities.Transaction;
+import app.Main;
 import app.db.DB;
+import app.home.HomeController;
 import app.login.LoginController;
 import app.transaction.TransactionController;
 import javafx.event.Event;
@@ -29,6 +30,7 @@ public class AccountController {
     @FXML private Button btn_loadAllTransactions;
     @FXML private Button btn_loadTenTransactions;
     @FXML private TextField TextField_account_id;
+    @FXML private Button btn_backhome;
 
     private String person_id = LoginController.getUser().getPerson_id();
     @FXML
@@ -36,6 +38,7 @@ public class AccountController {
         System.out.println("initialize account");
         btn_loadAllTransactions.setOnAction( e -> loadTransactions(0));
         btn_loadTenTransactions.setOnAction(e -> loadTransactions(10));
+        btn_backhome.setOnAction(e -> goToHome());
     }
 
 
@@ -51,8 +54,6 @@ public class AccountController {
             System.out.println("Error");
         }
     }
-
-
 
     void displayTransaction(List<Transaction> transactions, int show){
         // For every transaction, do the following:
@@ -78,6 +79,18 @@ public class AccountController {
         }
 
     }
+    private void switchScene(String pathname) {
+        try {
+            Parent bla = FXMLLoader.load(getClass().getResource(pathname));
+            Scene scene = new Scene(bla, 600, 400);
+            Main.stage.setScene(scene);
+            Main.stage.show();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
 
-    //@FXML void clickLoadTransactions() { loadMoreTransactions(); }
+    private void goToHome() {
+        switchScene("/app/home/home.fxml");
+    }
 }
