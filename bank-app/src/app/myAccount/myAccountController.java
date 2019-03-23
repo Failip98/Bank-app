@@ -19,14 +19,18 @@ public class myAccountController {
     @FXML private Button btn_payment;
     @FXML private Button btn_deliteAccount;
     @FXML private TextField TextField_delitAccount_nr;
+    @FXML private Label Label_deliteAccount;
     @FXML private Button btn_renameAccount;
     @FXML private TextField TextField_oldnameAccount_nr;
     @FXML private TextField TextField_newAccountname;
+    @FXML private Label Label_rename;
     @FXML private Button btn_newAccount;
+    @FXML private Label Label_newAccount;
     @FXML private TextField TextField_accountName;
     @FXML private Button btn_switchSalleryAccount;
     @FXML private Button btn_switchCreditCardAccount;
     @FXML private TextField TextField_switchAccountType;
+    @FXML private Label Label_switchAccountType;
     @FXML private Label Label_sallery;
     @FXML private Label Label_payment;
     @FXML private Button btn_moveMoney;
@@ -54,6 +58,10 @@ public class myAccountController {
         Label_sallery.setText(null);
         Label_moveMoney.setText(null);
         Label_payment.setText(null);
+        Label_deliteAccount.setText(null);
+        Label_rename.setText(null);
+        Label_newAccount.setText(null);
+        Label_switchAccountType.setText(null);
     }
 
     private void getSallery(){
@@ -93,10 +101,10 @@ public class myAccountController {
         List<Account> accounts = DB.getOwnedAccounts(person_id);
         if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
             DB.delitMyAccount(account_nr);
-            TextField_delitAccount_nr.clear();
+            Label_deliteAccount.setText("Done");
         }
         else{
-            System.out.println("Error");
+            Label_deliteAccount.setText("Error try again");
         }
         TextField_delitAccount_nr.clear();
     }
@@ -108,9 +116,10 @@ public class myAccountController {
         List<Account> accounts = DB.getOwnedAccounts(person_id);
         if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
             DB.renameMyAccount(person_id, account_nr, newAccountName );
+            Label_rename.setText("Done");
         }
         else{
-            System.out.println("Error");
+            Label_rename.setText("Error try again");
         }
         TextField_oldnameAccount_nr.clear();
         TextField_newAccountname.clear();
@@ -125,16 +134,38 @@ public class myAccountController {
         String name = TextField_accountName.getText();
         DB.newAccount(person_id,name,Integer.toString(account_nr));
         TextField_accountName.clear();
+        Label_newAccount.setText("Done");
     }
 
     private void switchAccountType(String accounttype){
+        clearLabel();
+        Account oldaccount_nr = DB.getAccountnr(person_id, accounttype);
+        String account_nr = TextField_switchAccountType.getText();
+        List<Account> accounts = DB.getOwnedAccounts(person_id);
+        if(TextField_switchAccountType.getText() == null || TextField_switchAccountType.getText().trim().isEmpty() ){
+        }else {
+            if(oldaccount_nr != null){
+                DB.switchAccounttype(person_id,oldaccount_nr.getAccount_nr(), "save");
+            }
+        }
+        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
+            String toSwichAccount_nr = TextField_switchAccountType.getText();
+            DB.switchAccounttype(person_id, toSwichAccount_nr ,accounttype);//nya
+            Label_switchAccountType.setText("Done");
+        }
+        else {
+            Label_switchAccountType.setText("Error Try again");
+        }
+        TextField_switchAccountType.clear();
+
+        /*
         Account account_nr = DB.getAccountnr(person_id, accounttype);
         if(account_nr != null){
             DB.switchAccounttype(person_id,account_nr.getAccount_nr(), "save");
         }
         String toSwichAccount_nr = TextField_switchAccountType.getText();
         DB.switchAccounttype(person_id,toSwichAccount_nr, accounttype);
-        TextField_switchAccountType.clear();
+        */
     }
 
     private void moveMoney(){

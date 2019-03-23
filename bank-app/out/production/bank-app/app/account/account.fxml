@@ -11,11 +11,15 @@
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.account.AccountController">
    <children>
-      <ScrollPane prefHeight="200.0" prefWidth="455.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
-         <content>
-            <VBox id="transactionBox" fx:id="transactionBox" prefHeight="200.0" prefWidth="177.0" />
-         </content>
-      </ScrollPane>
+      <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+         <children>
+            <ScrollPane id="scrollPane" fx:id="scrollPane" prefHeight="200.0" prefWidth="455.0">
+               <content>
+                  <VBox id="transactionBox" fx:id="transactionBox" prefHeight="200.0" prefWidth="177.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <left>
             <VBox BorderPane.alignment="CENTER">

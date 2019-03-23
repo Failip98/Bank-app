@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class AccountController {
 
+    @FXML ScrollPane scrollPane;
     @FXML VBox transactionBox;
     @FXML private Button btn_loadAllTransactions;
     @FXML private Button btn_loadTenTransactions;
