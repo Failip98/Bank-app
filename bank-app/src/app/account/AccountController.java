@@ -17,8 +17,7 @@ import java.util.List;
 
 public class AccountController {
 
-    @FXML
-    VBox transactionBox;
+    @FXML VBox transactionBox;
     @FXML private Button btn_loadAllTransactions;
     @FXML private Button btn_loadTenTransactions;
     @FXML private TextField TextField_account_id;
