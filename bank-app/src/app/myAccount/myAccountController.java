@@ -106,9 +106,15 @@ public class myAccountController {
     private void delitMyAccount(){
         clearLabel();
         String deliteaccount_nr = checkIfEmpty(comboBox_deliteaccount);
+        System.out.println(comboBox_deliteaccount.getSelectionModel().getSelectedItem().getAccount_nr());
+        System.out.println(comboBox_deliteaccount.getSelectionModel().getSelectedItem().getAmount());
         if (deliteaccount_nr != null){
-            DB.delitMyAccount(deliteaccount_nr);
-            Label_deliteAccount.setText("Done");
+            if (comboBox_deliteaccount.getSelectionModel().getSelectedItem().getAmount() == 0){
+                DB.delitMyAccount(deliteaccount_nr);
+                Label_deliteAccount.setText("Done");
+            }else {
+                Label_deliteAccount.setText("Can only remove empty Accounts");
+            }
         }
         else{
             Label_deliteAccount.setText("Error try again");

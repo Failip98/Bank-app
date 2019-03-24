@@ -28,4 +28,8 @@ public class Account {
     public String getAccounttype() {
         return accounttype;
     }
+
+    public float getAmount() {
+        return amount;
+    }
 }
