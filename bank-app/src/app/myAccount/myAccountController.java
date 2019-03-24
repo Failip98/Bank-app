@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+import javax.lang.model.util.ElementScanner6;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -19,10 +21,10 @@ public class myAccountController {
     @FXML private Button btn_sallery;
     @FXML private Button btn_payment;
     @FXML private Button btn_deliteAccount;
-    @FXML private TextField TextField_delitAccount_nr;
+    @FXML private ComboBox<Account> comboBox_deliteaccount;
     @FXML private Label Label_deliteAccount;
     @FXML private Button btn_renameAccount;
-    @FXML private TextField TextField_oldnameAccount_nr;
+    @FXML private ComboBox<Account> comboBox_renameAccount;
     @FXML private TextField TextField_newAccountname;
     @FXML private Label Label_rename;
     @FXML private Button btn_newAccount;
@@ -30,19 +32,18 @@ public class myAccountController {
     @FXML private TextField TextField_accountName;
     @FXML private Button btn_switchSalleryAccount;
     @FXML private Button btn_switchCreditCardAccount;
-    @FXML private TextField TextField_switchAccountType;
+    @FXML private ComboBox<Account> comboBox_switchAccount;
     @FXML private Label Label_switchAccountType;
     @FXML private Label Label_sallery;
     @FXML private Label Label_payment;
     @FXML private Button btn_moveMoney;
-    @FXML private TextField TextField_moneyFrom;
+    @FXML private ComboBox<Account> comboBox_movefromAccount;
     @FXML private TextField TextField_moneyTo;
     @FXML private Label Label_moveMoney;
     @FXML private Button btn_backhome;
     @FXML private TextField TextField_amount;
 
 
-    @FXML private ComboBox<Account> comboBox_deliteaccount;
 
 
     private String person_id = LoginController.getUser().getPerson_id();
@@ -59,7 +60,6 @@ public class myAccountController {
         btn_moveMoney.setOnAction(e -> moveMoney());
         btn_backhome.setOnAction(e -> goToHome());
         uppdateAccountTocombobox();
-        comboBox_deliteaccount.setOnAction( e -> showcombobox());
     }
 
     private void clearLabel(){
@@ -105,10 +105,7 @@ public class myAccountController {
 
     private void delitMyAccount(){
         clearLabel();
-        String deliteaccount_nr = null;
-        if (comboBox_deliteaccount.getValue() != null){
-            deliteaccount_nr = comboBox_deliteaccount.getValue().getAccount_nr();
-        }
+        String deliteaccount_nr = checkIfEmpty(comboBox_deliteaccount);
         if (deliteaccount_nr != null){
             DB.delitMyAccount(deliteaccount_nr);
             Label_deliteAccount.setText("Done");
@@ -119,31 +116,23 @@ public class myAccountController {
         uppdateAccountTocombobox();
     }
 
-        /*List<Account> accounts = DB.getOwnedAccounts(person_id);
-        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr)) && deliteaccount_nr == account_nr){
-            DB.delitMyAccount(account_nr);
-            Label_deliteAccount.setText("Done");
-        }
-        else{
-            Label_deliteAccount.setText("Error try again");
-        }
-        TextField_delitAccount_nr.clear();*/
-
-
     private void renameAccount(){
         clearLabel();
-        String account_nr = TextField_oldnameAccount_nr.getText();
-        String newAccountName = TextField_newAccountname.getText();
-        List<Account> accounts = DB.getOwnedAccounts(person_id);
-        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
-            DB.renameMyAccount(person_id, account_nr, newAccountName );
-            Label_rename.setText("Done");
+        String account_nr = checkIfEmpty(comboBox_renameAccount);
+        System.out.println(account_nr);
+        if (account_nr != null){
+            if(TextField_newAccountname.getText() == null || TextField_newAccountname.getText().trim().isEmpty()){
+                Label_rename.setText("Fill in new name");
+            }else {
+                String newAccountName = TextField_newAccountname.getText();
+                DB.renameMyAccount(person_id, account_nr, newAccountName );
+                Label_rename.setText("Done");
+            }
+        }else {
+            Label_rename.setText("Fill in Account nr");
         }
-        else{
-            Label_rename.setText("Error try again");
-        }
-        TextField_oldnameAccount_nr.clear();
         TextField_newAccountname.clear();
+        uppdateAccountTocombobox();
     }
 
     private void createNewAccount(){
@@ -161,65 +150,48 @@ public class myAccountController {
 
     private void switchAccountType(String accounttype){
         clearLabel();
+        String switchAccount_nr = checkIfEmpty(comboBox_switchAccount);
         Account oldaccount_nr = DB.getAccountnr(person_id, accounttype);
-        String account_nr = TextField_switchAccountType.getText();
-        List<Account> accounts = DB.getOwnedAccounts(person_id);
-        if(TextField_switchAccountType.getText() == null || TextField_switchAccountType.getText().trim().isEmpty() ){
-        }else {
+        if(switchAccount_nr != null){
             if(oldaccount_nr != null){
                 DB.switchAccounttype(person_id,oldaccount_nr.getAccount_nr(), "save");
             }
-        }
-        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
-            String toSwichAccount_nr = TextField_switchAccountType.getText();
-            DB.switchAccounttype(person_id, toSwichAccount_nr ,accounttype);//nya
+            DB.switchAccounttype(person_id, switchAccount_nr ,accounttype);//nya
             Label_switchAccountType.setText("Done");
         }
         else {
-            Label_switchAccountType.setText("Error Try again");
+            Label_switchAccountType.setText("Fill in Account nr");
         }
-        TextField_switchAccountType.clear();
+        uppdateAccountTocombobox();
 
-        /*
-        Account account_nr = DB.getAccountnr(person_id, accounttype);
-        if(account_nr != null){
-            DB.switchAccounttype(person_id,account_nr.getAccount_nr(), "save");
-        }
-        String toSwichAccount_nr = TextField_switchAccountType.getText();
-        DB.switchAccounttype(person_id,toSwichAccount_nr, accounttype);
-        */
     }
 
     private void moveMoney(){
         clearLabel();
-        List<Account> accounts = DB.getOwnedAccounts(person_id);
-        if (TextField_moneyFrom.getText() == null || TextField_moneyFrom.getText().trim().isEmpty() || TextField_moneyTo.getText() == null ||
-                TextField_moneyTo.getText().trim().isEmpty() || TextField_amount.getText() == null || TextField_amount.getText().trim().isEmpty()){
-            Label_moveMoney.setText("Fill in information");
-        }else {
-            try
-            {
-                double amount = Double.parseDouble(TextField_amount.getText());
-                String from = TextField_moneyFrom.getText();
-                String to = TextField_moneyTo.getText();
-                if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(from))){
+        String from = checkIfEmpty(comboBox_movefromAccount);
+        if (from != null){
+            if (TextField_moneyTo.getText() == null || TextField_moneyTo.getText().trim().isEmpty()
+                    || TextField_amount.getText() == null || TextField_amount.getText().trim().isEmpty()) {
+                Label_moveMoney.setText("Fill in information");
+            }else{
+                try {
+                    double amount = Double.parseDouble(TextField_amount.getText());
+                    String to = TextField_moneyTo.getText();
                     DB.addPayment(amount, to);
                     DB.subbtraktPayment(amount, from);
                     newTransaction(to,from,amount);
                     Label_moveMoney.setText("Done");
-                }
-                else{
-                    System.out.println("Error");
+                }catch (NullPointerException | NumberFormatException ex) {
+                    Label_moveMoney.setText("Fill in only numbers");
                 }
             }
-            catch (NullPointerException | NumberFormatException ex)
-            {
-                System.out.println("Error");
-            }
+        }else {
+            Label_moveMoney.setText("Fill in Account nr");
         }
-        TextField_moneyFrom.clear();
         TextField_moneyTo.clear();
         TextField_amount.clear();
+        uppdateAccountTocombobox();
+
     }
 
     private void newTransaction(String to, String from, double amount){
@@ -245,13 +217,24 @@ public class myAccountController {
         removefromComboBox();
         List<Account> accounts = DB.getOwnedAccounts(person_id);
         comboBox_deliteaccount.getItems().addAll(accounts);
+        comboBox_renameAccount.getItems().addAll(accounts);
+        comboBox_switchAccount.getItems().addAll(accounts);
+        comboBox_movefromAccount.getItems().addAll(accounts);
     }
 
     private void removefromComboBox(){
         comboBox_deliteaccount.getItems().clear();
+        comboBox_renameAccount.getItems().clear();
+        comboBox_switchAccount.getItems().clear();
+        comboBox_movefromAccount.getItems().clear();
     }
 
-    private void showcombobox(){
-        //System.out.println(comboBox_deliteaccount.getSelectionModel().getSelectedItem().getAccount_nr());
+    private String checkIfEmpty(ComboBox<Account> box){
+        if (box.getValue() != null){
+            return box.getSelectionModel().getSelectedItem().getAccount_nr();
+        }
+        else {
+            return null;
+        }
     }
 }

@@ -13,28 +13,29 @@
       <Button id="btn_sallery" fx:id="btn_sallery" mnemonicParsing="false" text="Sallery" GridPane.rowIndex="0" />
        <Button id="btn_payment" fx:id="btn_payment" mnemonicParsing="false" text="Payment" GridPane.rowIndex="1" />
       <Button id="btn_deliteAccount" fx:id="btn_deliteAccount" mnemonicParsing="false" text="Delite Account" GridPane.rowIndex="2" />
-      <TextField id="TextField_delitAccount_nr" fx:id="TextField_delitAccount_nr" promptText="Account_nr" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Button id="btn_renameAccount" fx:id="btn_renameAccount" mnemonicParsing="false" text="Rename Account" GridPane.rowIndex="3" />
-      <TextField id="TextField_oldnameAccount_nr" fx:id="TextField_oldnameAccount_nr" promptText="Account_nr" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+       <ComboBox id="comboBox_deliteaccount" fx:id="comboBox_deliteaccount" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+       <Label id="Label_deliteAccount" fx:id="Label_deliteAccount" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+       <Button id="btn_renameAccount" fx:id="btn_renameAccount" mnemonicParsing="false" text="Rename Account" GridPane.rowIndex="3" />
+       <ComboBox fx:id="comboBox_renameAccount" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
        <TextField id="TextField_newAccountname" fx:id="TextField_newAccountname" promptText="New Account Name" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <Button id="btn_newAccount" fx:id="btn_newAccount" mnemonicParsing="false" text="New Account" GridPane.rowIndex="4" />
-      <TextField id="TextField_accountName" fx:id="TextField_accountName" promptText="Account Name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button id="btn_switchSalleryAccount" fx:id="btn_switchSalleryAccount" text="Create Or Switch Sallery Account" GridPane.rowIndex="5" />
+       <Button id="btn_newAccount" fx:id="btn_newAccount" mnemonicParsing="false" text="New Account" GridPane.rowIndex="4" />
+       <TextField id="TextField_accountName" fx:id="TextField_accountName" promptText="Account Name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+       <Button id="btn_switchSalleryAccount" fx:id="btn_switchSalleryAccount" text="Create Or Switch Sallery Account" GridPane.rowIndex="5" />
        <Button id="btn_switchCreditCardAccount" fx:id="btn_switchCreditCardAccount" mnemonicParsing="false" text="Create Or Switch Credit Card Account" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <TextField id="TextField_switchAccountType" fx:id="TextField_switchAccountType" promptText="Account ID" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-      <Label id="Label_sallery" fx:id="Label_sallery" GridPane.columnIndex="1" />
-      <Label id="Label_payment" fx:id="Label_payment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button id="btn_moveMoney" fx:id="btn_moveMoney" mnemonicParsing="false" text="Move Money" GridPane.rowIndex="6" />
-       <TextField id="TextField_moneyFrom" fx:id="TextField_moneyFrom" promptText="Move Money From Account Id" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+       <ComboBox id="comboBox_switchAccount" fx:id="comboBox_switchAccount" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+       <Label id="Label_sallery" fx:id="Label_sallery" GridPane.columnIndex="1" />
+       <Label id="Label_payment" fx:id="Label_payment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+       <Button id="btn_moveMoney" fx:id="btn_moveMoney" mnemonicParsing="false" text="Move Money" GridPane.rowIndex="6" />
+       <TextField id="TextField_moneyFrom" fx:id="TextField_moneyFrom" promptText="Move Money From Account Id"  />
+       <ComboBox id="comboBox_movefromAccount" fx:id="comboBox_movefromAccount" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
        <TextField id="TextField_moneyTo" fx:id="TextField_moneyTo" prefHeight="31.0" prefWidth="208.0" promptText="Move Money To Account Id" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-      <Label id="Label_moveMoney" fx:id="Label_moveMoney" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-      <Button id="btn_backhome" fx:id="btn_backhome" mnemonicParsing="false" text="Back Home" GridPane.rowIndex="7" />
-      <TextField id="TextField_amount" fx:id="TextField_amount" promptText="Amount" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-      <Label id="Label_deliteAccount" fx:id="Label_deliteAccount" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-      <Label id="Label_rename" fx:id="Label_rename" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-      <Label id="Label_newAccount" fx:id="Label_newAccount" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Label id="Label_switchAccountType" fx:id="Label_switchAccountType" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-      <ComboBox id="comboBox_deliteaccount" fx:id="comboBox_deliteaccount" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+       <Label id="Label_moveMoney" fx:id="Label_moveMoney" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+       <Button id="btn_backhome" fx:id="btn_backhome" mnemonicParsing="false" text="Back Home" GridPane.rowIndex="7" />
+       <TextField id="TextField_amount" fx:id="TextField_amount" promptText="Amount" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+       <Label id="Label_rename" fx:id="Label_rename" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+       <Label id="Label_newAccount" fx:id="Label_newAccount" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+       <Label id="Label_switchAccountType" fx:id="Label_switchAccountType" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+
 
    </children>
    <columnConstraints>
