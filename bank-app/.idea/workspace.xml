@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/account/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/account/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/account/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/db/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/db/DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/myAccount/myAccount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/myAccount/myAccount.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,6 +59,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccount.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="35" column="124" selection-start-line="35" selection-start-column="124" selection-end-line="35" selection-end-column="124" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/account/account.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -73,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/account/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+            <state relative-caret-position="379">
+              <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#uppdateAccountTocombobox#0;class#AccountController#0" />
@@ -174,16 +180,16 @@
         <option value="$PROJECT_DIR$/src/app/transaction/TransactionController.java" />
         <option value="$PROJECT_DIR$/src/app/home/HomeController.java" />
         <option value="$PROJECT_DIR$/src/app/Entities/Account.java" />
-        <option value="$PROJECT_DIR$/src/app/myAccount/myAccount.fxml" />
         <option value="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" />
         <option value="$PROJECT_DIR$/src/app/db/DB.java" />
         <option value="$PROJECT_DIR$/src/app/account/account.fxml" />
         <option value="$PROJECT_DIR$/src/app/account/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/app/myAccount/myAccount.fxml" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -264,7 +270,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553439226321" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553439572415" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="C:/Program Files/Java/mysql-connector-java-8.0.15.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -440,12 +446,12 @@
       <workItem from="1553154564978" duration="27347000" />
       <workItem from="1553240156982" duration="26438000" />
       <workItem from="1553327338151" duration="9907000" />
-      <workItem from="1553415335724" duration="20363000" />
+      <workItem from="1553415335724" duration="20917000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126038000" />
+    <option name="totallyTimeSpent" value="126592000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -460,7 +466,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.15255377" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.15255377" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -471,7 +477,7 @@
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Database Changes" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.2556818" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.2556818" />
+      <window_info anchor="bottom" id="Run" order="4" visible="true" weight="0.2556818" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.39914772" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -731,36 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccount.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="36" column="124" selection-start-line="36" selection-start-column="124" selection-end-line="36" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="232" column="35" lean-forward="true" selection-start-line="232" selection-start-column="35" selection-end-line="232" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#clearLabel#0;class#myAccountController#0" />
-            <element signature="method#getSallery#0;class#myAccountController#0" />
-            <element signature="method#makeapayment#0;class#myAccountController#0" />
-            <element signature="method#renameAccount#0;class#myAccountController#0" />
-            <element signature="method#createNewAccount#0;class#myAccountController#0" />
-            <element signature="method#switchAccountType#0;class#myAccountController#0" />
-            <element signature="method#moveMoney#0;class#myAccountController#0" />
-            <element signature="e#7932#7933#0" expanded="true" />
-            <element signature="e#7982#7983#0" expanded="true" />
-            <element signature="method#switchScene#0;class#myAccountController#0" />
-            <element signature="method#uppdateAccountTocombobox#0;class#myAccountController#0" />
-            <element signature="method#removefromComboBox#0;class#myAccountController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/db/DB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -781,6 +757,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="225" column="37" selection-start-line="225" selection-start-column="37" selection-end-line="225" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#clearLabel#0;class#myAccountController#0" />
+            <element signature="method#getSallery#0;class#myAccountController#0" />
+            <element signature="method#makeapayment#0;class#myAccountController#0" />
+            <element signature="method#renameAccount#0;class#myAccountController#0" />
+            <element signature="method#createNewAccount#0;class#myAccountController#0" />
+            <element signature="method#switchAccountType#0;class#myAccountController#0" />
+            <element signature="method#moveMoney#0;class#myAccountController#0" />
+            <element signature="method#switchScene#0;class#myAccountController#0" />
+            <element signature="method#uppdateAccountTocombobox#0;class#myAccountController#0" />
+            <element signature="method#removefromComboBox#0;class#myAccountController#0" />
+            <element signature="method#checkIfEmpty#0;class#myAccountController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/account/account.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
@@ -791,13 +788,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/account/AccountController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+        <state relative-caret-position="379">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#uppdateAccountTocombobox#0;class#AccountController#0" />
             <element signature="method#switchScene#0;class#AccountController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/myAccount/myAccount.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="35" column="124" selection-start-line="35" selection-start-column="124" selection-end-line="35" selection-end-column="124" />
         </state>
       </provider>
     </entry>

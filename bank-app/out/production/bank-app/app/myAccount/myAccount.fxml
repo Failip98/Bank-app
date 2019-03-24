@@ -26,8 +26,7 @@
        <Label id="Label_sallery" fx:id="Label_sallery" GridPane.columnIndex="1" />
        <Label id="Label_payment" fx:id="Label_payment" GridPane.columnIndex="1" GridPane.rowIndex="1" />
        <Button id="btn_moveMoney" fx:id="btn_moveMoney" mnemonicParsing="false" text="Move Money" GridPane.rowIndex="6" />
-       <TextField id="TextField_moneyFrom" fx:id="TextField_moneyFrom" promptText="Move Money From Account Id"  />
-       <ComboBox id="comboBox_movefromAccount" fx:id="comboBox_movefromAccount" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+       <ComboBox id="comboBox_movefromAccount" fx:id="comboBox_movefromAccount" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
        <TextField id="TextField_moneyTo" fx:id="TextField_moneyTo" prefHeight="31.0" prefWidth="208.0" promptText="Move Money To Account Id" GridPane.columnIndex="2" GridPane.rowIndex="6" />
        <Label id="Label_moveMoney" fx:id="Label_moveMoney" GridPane.columnIndex="4" GridPane.rowIndex="6" />
        <Button id="btn_backhome" fx:id="btn_backhome" mnemonicParsing="false" text="Back Home" GridPane.rowIndex="7" />
