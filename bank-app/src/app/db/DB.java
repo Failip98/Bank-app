@@ -81,7 +81,7 @@ public abstract class DB {
         }
     }
 
-    public static void addToTrnsaktion(String person_id, String to, String from, Double amount){
+    public static void addToTrnsaktion(String to, String from, Double amount){
         PreparedStatement ps = prep("INSERT INTO transactions SET  transactions.`to` = ?, transactions.`from` =?, transactions.amount = ?;");
         try {
             ps.setString(1, to);

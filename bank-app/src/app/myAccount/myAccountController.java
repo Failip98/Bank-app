@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.IOException;
@@ -39,6 +40,11 @@ public class myAccountController {
     @FXML private Label Label_moveMoney;
     @FXML private Button btn_backhome;
     @FXML private TextField TextField_amount;
+
+
+    @FXML private ComboBox<Account> comboBox_deliteaccount;
+
+
     private String person_id = LoginController.getUser().getPerson_id();
     @FXML
     private void initialize(){
@@ -52,6 +58,8 @@ public class myAccountController {
         btn_switchCreditCardAccount.setOnAction(e -> switchAccountType("creditcard"));
         btn_moveMoney.setOnAction(e -> moveMoney());
         btn_backhome.setOnAction(e -> goToHome());
+        uppdateAccountTocombobox();
+        comboBox_deliteaccount.setOnAction( e -> showcombobox());
     }
 
     private void clearLabel(){
@@ -97,17 +105,30 @@ public class myAccountController {
 
     private void delitMyAccount(){
         clearLabel();
-        String account_nr = TextField_delitAccount_nr.getText();
-        List<Account> accounts = DB.getOwnedAccounts(person_id);
-        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr))){
+        String deliteaccount_nr = null;
+        if (comboBox_deliteaccount.getValue() != null){
+            deliteaccount_nr = comboBox_deliteaccount.getValue().getAccount_nr();
+        }
+        if (deliteaccount_nr != null){
+            DB.delitMyAccount(deliteaccount_nr);
+            Label_deliteAccount.setText("Done");
+        }
+        else{
+            Label_deliteAccount.setText("Error try again");
+        }
+        uppdateAccountTocombobox();
+    }
+
+        /*List<Account> accounts = DB.getOwnedAccounts(person_id);
+        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_nr)) && deliteaccount_nr == account_nr){
             DB.delitMyAccount(account_nr);
             Label_deliteAccount.setText("Done");
         }
         else{
             Label_deliteAccount.setText("Error try again");
         }
-        TextField_delitAccount_nr.clear();
-    }
+        TextField_delitAccount_nr.clear();*/
+
 
     private void renameAccount(){
         clearLabel();
@@ -135,6 +156,7 @@ public class myAccountController {
         DB.newAccount(person_id,name,Integer.toString(account_nr));
         TextField_accountName.clear();
         Label_newAccount.setText("Done");
+        uppdateAccountTocombobox();
     }
 
     private void switchAccountType(String accounttype){
@@ -201,7 +223,7 @@ public class myAccountController {
     }
 
     private void newTransaction(String to, String from, double amount){
-        DB.addToTrnsaktion(person_id,to,from,amount);
+        DB.addToTrnsaktion(to,from,amount);
     }
 
     private void goToHome() {
@@ -217,5 +239,19 @@ public class myAccountController {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+    }
+
+    private void uppdateAccountTocombobox(){
+        removefromComboBox();
+        List<Account> accounts = DB.getOwnedAccounts(person_id);
+        comboBox_deliteaccount.getItems().addAll(accounts);
+    }
+
+    private void removefromComboBox(){
+        comboBox_deliteaccount.getItems().clear();
+    }
+
+    private void showcombobox(){
+        //System.out.println(comboBox_deliteaccount.getSelectionModel().getSelectedItem().getAccount_nr());
     }
 }

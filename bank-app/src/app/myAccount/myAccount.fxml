@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -29,10 +30,11 @@
       <Label id="Label_moveMoney" fx:id="Label_moveMoney" GridPane.columnIndex="4" GridPane.rowIndex="6" />
       <Button id="btn_backhome" fx:id="btn_backhome" mnemonicParsing="false" text="Back Home" GridPane.rowIndex="7" />
       <TextField id="TextField_amount" fx:id="TextField_amount" promptText="Amount" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-      <Label id="Label_deliteAccount" fx:id="Label_deliteAccount" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Label id="Label_deliteAccount" fx:id="Label_deliteAccount" GridPane.columnIndex="3" GridPane.rowIndex="2" />
       <Label id="Label_rename" fx:id="Label_rename" GridPane.columnIndex="3" GridPane.rowIndex="3" />
       <Label id="Label_newAccount" fx:id="Label_newAccount" GridPane.columnIndex="2" GridPane.rowIndex="4" />
       <Label id="Label_switchAccountType" fx:id="Label_switchAccountType" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <ComboBox id="comboBox_deliteaccount" fx:id="comboBox_deliteaccount" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
    </children>
    <columnConstraints>
