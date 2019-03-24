@@ -42,12 +42,9 @@ public class myAccountController {
     @FXML private Label Label_moveMoney;
     @FXML private Button btn_backhome;
     @FXML private TextField TextField_amount;
-
-
-
-
     private String person_id = LoginController.getUser().getPerson_id();
     @FXML
+
     private void initialize(){
         System.out.println("initialize account");
         btn_sallery.setOnAction( e -> getSallery());
@@ -106,8 +103,6 @@ public class myAccountController {
     private void delitMyAccount(){
         clearLabel();
         String deliteaccount_nr = checkIfEmpty(comboBox_deliteaccount);
-        System.out.println(comboBox_deliteaccount.getSelectionModel().getSelectedItem().getAccount_nr());
-        System.out.println(comboBox_deliteaccount.getSelectionModel().getSelectedItem().getAmount());
         if (deliteaccount_nr != null){
             if (comboBox_deliteaccount.getSelectionModel().getSelectedItem().getAmount() == 0){
                 DB.delitMyAccount(deliteaccount_nr);

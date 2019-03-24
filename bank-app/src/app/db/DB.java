@@ -26,11 +26,11 @@ public abstract class DB {
     public static List<Transaction> getTransactions( String account_nr){
         List<Transaction> result = null;
         PreparedStatement ps = prep("SELECT * FROM transactions WHERE transactions.`to` = ? OR transactions.`from` = ? ORDER BY transactions.date DESC;");
-        try {
-            ps.setString(1, account_nr);
-            ps.setString(2, account_nr);
-            result = (List<Transaction>)(List<?>) new ObjectMapper<>(Transaction.class).map(ps.executeQuery());
-        } catch (Exception e) { e.printStackTrace(); }
+            try {
+                ps.setString(1, account_nr);
+                ps.setString(2, account_nr);
+                result = (List<Transaction>)(List<?>) new ObjectMapper<>(Transaction.class).map(ps.executeQuery());
+            } catch (Exception e) { e.printStackTrace(); }
         return result; // transactionslista
     }
 

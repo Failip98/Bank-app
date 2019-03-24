@@ -35,8 +35,6 @@
        <Label id="Label_rename" fx:id="Label_rename" GridPane.columnIndex="3" GridPane.rowIndex="3" />
        <Label id="Label_newAccount" fx:id="Label_newAccount" GridPane.columnIndex="2" GridPane.rowIndex="4" />
        <Label id="Label_switchAccountType" fx:id="Label_switchAccountType" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-
-
    </children>
    <columnConstraints>
       <ColumnConstraints />

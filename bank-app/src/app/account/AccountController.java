@@ -9,10 +9,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.Button;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -20,9 +19,10 @@ public class AccountController {
 
     @FXML ScrollPane scrollPane;
     @FXML VBox transactionBox;
+    @FXML private Label label_error;
+    @FXML private ComboBox<Account> ComboBox_account;
     @FXML private Button btn_loadAllTransactions;
     @FXML private Button btn_loadTenTransactions;
-    @FXML private TextField TextField_account_id;
     @FXML private Button btn_backhome;
 
     private String person_id = LoginController.getUser().getPerson_id();
@@ -33,17 +33,19 @@ public class AccountController {
         btn_loadAllTransactions.setOnAction( e -> loadTransactions(0));
         btn_loadTenTransactions.setOnAction(e -> loadTransactions(10));
         btn_backhome.setOnAction(e -> goToHome());
+        uppdateAccountTocombobox();
     }
 
     private void loadTransactions(int i){
-        String account_id = TextField_account_id.getText();
-        List<Account> accounts = DB.getOwnedAccounts(person_id);
-        if (accounts.stream().anyMatch(a -> a.getAccount_nr().equals(account_id))){
+        label_error.setText(null);
+        String account_id = null;
+        if (ComboBox_account.getValue() != null){
+            account_id = ComboBox_account.getSelectionModel().getSelectedItem().getAccount_nr();
             List<Transaction> transactions = DB.getTransactions(account_id);
             displayTransaction(transactions,i);
         }
-        else{
-            System.out.println("Error");
+        else {
+            label_error.setText("select a account");
         }
     }
 
@@ -65,6 +67,17 @@ public class AccountController {
             }
         }
     }
+
+    private void uppdateAccountTocombobox(){
+        removefromComboBox();
+        List<Account> accounts = DB.getOwnedAccounts(person_id);
+        ComboBox_account.getItems().addAll(accounts);
+    }
+
+    private void removefromComboBox(){
+        ComboBox_account.getItems().clear();
+    }
+
 
     private void goToHome() {
         switchScene("/app/home/home.fxml");
