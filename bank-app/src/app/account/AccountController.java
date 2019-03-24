@@ -38,6 +38,7 @@ public class AccountController {
 
     private void loadTransactions(int i){
         label_error.setText(null);
+        transactionBox.getChildren().clear();
         String account_id = null;
         if (ComboBox_account.getValue() != null){
             account_id = ComboBox_account.getSelectionModel().getSelectedItem().getAccount_nr();
