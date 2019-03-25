@@ -11,13 +11,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 import java.util.List;
 
 public class AccountController {
 
-    @FXML ScrollPane scrollPane;
     @FXML VBox transactionBox;
     @FXML private Label label_error;
     @FXML private ComboBox<Account> ComboBox_account;
@@ -29,7 +27,6 @@ public class AccountController {
 
     @FXML
     private void initialize(){
-        System.out.println("initialize account");
         btn_loadAllTransactions.setOnAction( e -> loadTransactions(0));
         btn_loadTenTransactions.setOnAction(e -> loadTransactions(10));
         btn_backhome.setOnAction(e -> goToHome());
@@ -53,7 +50,6 @@ public class AccountController {
     private void displayTransaction(List<Transaction> transactions, int show){
         if (show != 0) {
             transactions = transactions.subList(0, Math.min(show, transactions.size()));
-
         }
         for (Transaction t : transactions) {
             try {
@@ -79,7 +75,6 @@ public class AccountController {
         ComboBox_account.getItems().clear();
     }
 
-
     private void goToHome() {
         switchScene("/app/home/home.fxml");
     }
@@ -94,5 +89,4 @@ public class AccountController {
             e1.printStackTrace();
         }
     }
-
 }

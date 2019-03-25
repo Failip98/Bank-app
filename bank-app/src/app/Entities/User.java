@@ -11,20 +11,8 @@ public class User {
     @Column
     private String password;
 
-    public String getName() {
-        return name;
-    }
-
     public String getPerson_id() {
         return person_id;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     @Override

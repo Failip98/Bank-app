@@ -18,7 +18,6 @@ public class Account {
     @Override
     public String toString(){
         return String.format("Account_nr: %s, Name: %s, Amount: %.2f, Accounttype: %s", account_nr, name, amount, accounttype);
-        //return String.format("Accounts: { account_nr: %s, name: %s, owner_id: %s, amount: %f, accounttype: %s }", account_nr, name, owner_id, amount, accounttype);
     }
 
     public String getAccount_nr() {

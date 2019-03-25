@@ -12,7 +12,6 @@ public class TransactionController {
 
     @FXML
     private void initialize(){
-        System.out.println("initialize transaction");
     }
 
     public void setTransaction(Transaction transaction) {

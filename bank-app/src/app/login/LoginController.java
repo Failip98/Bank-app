@@ -7,44 +7,61 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class LoginController {
 
-    // Use this in other Controllers to get "the currently logged in user".
     private static User user = null;
     public static User getUser() { return user; }
 
     @FXML private TextField textField_id;
     @FXML private TextField textField_password;
+    @FXML private PasswordField PasswordField_password;
     @FXML private Button btn_loggin;
+    @FXML private Label Label_error_id;
+    @FXML private Label Label_error_password;
 
     public TextField getIdInput(){
         return textField_id;
     }
 
-    public TextField getPasswordInput(){
-        return textField_password;
+    public PasswordField getPasswordInput(){
+        return PasswordField_password;
     }
 
     @FXML
     private void initialize() {
-        System.out.println("initialize login");
         btn_loggin.setOnAction( e -> loggInVerifier());
     }
 
     private void loggInVerifier() {
-        String person_id = textField_id.getText();
-        String password = textField_password.getText();
-        System.out.println(person_id);
-        System.out.println(password);
-        user = DB.getMatchingUser(person_id, password);
-        if(user != null){
-            goToHome();
+        Label_error_id.setText(null);
+        Label_error_password.setText(null);
+        if (textField_id.getText() == null || textField_id.getText().trim().isEmpty() ||
+                PasswordField_password.getText() == null || PasswordField_password.getText().trim().isEmpty()){
+            Label_error_id.setText("Fill in information");
+            Label_error_password.setText("Fill in information");
+            cleartextinput();
         }else {
-            System.out.println("ERROR LOGGIN FAIL");
+            String person_id = textField_id.getText();
+            String password = PasswordField_password.getText();
+            user = DB.getMatchingUser(person_id, password);
+            if(user != null){
+                goToHome();
+            }else {
+                Label_error_id.setText("Fill in proper Id");
+                Label_error_password.setText("Fill in proper Password");
+                cleartextinput();
+            }
         }
+    }
+
+    public void cleartextinput(){
+        textField_id.clear();
+        PasswordField_password.clear();
     }
 
     public void goToHome() {

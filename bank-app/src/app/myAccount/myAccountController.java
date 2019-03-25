@@ -11,8 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-import javax.lang.model.util.ElementScanner6;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -46,7 +44,6 @@ public class myAccountController {
     @FXML
 
     private void initialize(){
-        System.out.println("initialize account");
         btn_sallery.setOnAction( e -> getSallery());
         btn_payment.setOnAction(e -> makeapayment());
         btn_deliteAccount.setOnAction( e -> delitMyAccount());
@@ -83,6 +80,7 @@ public class myAccountController {
         }else{
             Label_sallery.setText("Error miss a Sallery Account ");
         }
+        uppdateAccountTocombobox();
     }
 
     private void makeapayment(){
@@ -91,7 +89,6 @@ public class myAccountController {
         String to = "Store";
         String accounttype = "creditcard";
         Account account_nr = DB.getAccountnr(person_id, accounttype);
-        System.out.println(account_nr);
         if(account_nr != null){
             DB.subbtraktPayment(payment, account_nr.getAccount_nr());
             DB.addPayment(payment, to);
@@ -100,6 +97,7 @@ public class myAccountController {
         }else{
             Label_payment.setText("Error miss a Credit Card Account ");
         }
+        uppdateAccountTocombobox();
     }
 
     private void delitMyAccount(){
@@ -139,15 +137,20 @@ public class myAccountController {
     }
 
     private void createNewAccount(){
-        clearLabel();
-        Random r = new Random();
-        int max = 2147483647;
-        int min = 0;
-        int account_nr = r.nextInt((max - min));
-        String name = TextField_accountName.getText();
-        DB.newAccount(person_id,name,Integer.toString(account_nr));
-        TextField_accountName.clear();
-        Label_newAccount.setText("Done");
+
+        if(TextField_accountName.getText() == null || TextField_accountName.getText().trim().isEmpty()){
+            Label_newAccount.setText("Fill in new Account name");
+        }else {
+            clearLabel();
+            Random r = new Random();
+            int max = 2147483647;
+            int min = 0;
+            int account_nr = r.nextInt((max - min));
+            String name = TextField_accountName.getText();
+            DB.newAccount(person_id,name,Integer.toString(account_nr));
+            TextField_accountName.clear();
+            Label_newAccount.setText("Done");
+        }
         uppdateAccountTocombobox();
     }
 
