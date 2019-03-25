@@ -16,7 +16,7 @@ public class Database {
         connectToDb();
     }
 
-    final String connectionURL = "jdbc:mysql://localhost/bank-app?user=root&password=Filip9808 &serverTimezone=UTC";//&serverTimezone=UTC
+    final String connectionURL = "";
     private Connection conn = null;
     private HashMap<String, PreparedStatement> preparedStatements = new HashMap<>();
 

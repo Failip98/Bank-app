@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/Entities/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/Entities/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/Entities/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/Entities/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/Entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/Entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/account/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/account/AccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/account/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/account/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/db/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/db/DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/db/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/db/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/db/ObjectMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/db/ObjectMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/home/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/home/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/login/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/login/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/login/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/myAccount/myAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/myAccount/myAccountController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/transaction/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/transaction/TransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bank-app/app/transaction/transaction.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bank-app/app/transaction/transaction.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Entities/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Entities/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Entities/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Entities/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/account/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/account/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/account/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/account/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/annotations/Column.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/annotations/Column.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/db/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/db/DB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/db/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/db/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/db/ObjectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/db/ObjectMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/transaction/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transaction/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/transaction/transaction.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/transaction/transaction.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,26 +59,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/db/Database.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="18" column="137" selection-start-line="18" selection-start-column="137" selection-end-line="18" selection-end-column="137" />
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#prepareStatement#0;class#Database#0" />
                 <element signature="method#connectToDb#0;class#Database#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/account/account.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state>
-              <caret column="38" selection-start-column="38" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -175,7 +134,6 @@
         <option value="$PROJECT_DIR$/src/app/myAccount/myAccount.fxml" />
         <option value="$PROJECT_DIR$/src/app/Main.java" />
         <option value="$PROJECT_DIR$/src/app/annotations/Column.java" />
-        <option value="$PROJECT_DIR$/src/app/db/Database.java" />
         <option value="$PROJECT_DIR$/src/app/db/DB.java" />
         <option value="$PROJECT_DIR$/src/app/db/ObjectMapper.java" />
         <option value="$PROJECT_DIR$/src/app/Entities/User.java" />
@@ -189,11 +147,12 @@
         <option value="$PROJECT_DIR$/src/app/home/HomeController.java" />
         <option value="$PROJECT_DIR$/src/app/myAccount/myAccountController.java" />
         <option value="$PROJECT_DIR$/src/app/account/account.fxml" />
+        <option value="$PROJECT_DIR$/src/app/db/Database.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -227,13 +186,6 @@
               <item name="bank-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bank-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bank-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -430,12 +382,12 @@
       <workItem from="1553240156982" duration="26438000" />
       <workItem from="1553327338151" duration="9907000" />
       <workItem from="1553415335724" duration="21047000" />
-      <workItem from="1553502212178" duration="5385000" />
+      <workItem from="1553502212178" duration="6159000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132107000" />
+    <option name="totallyTimeSpent" value="132881000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -782,23 +734,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/db/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="137" selection-start-line="18" selection-start-column="137" selection-end-line="18" selection-end-column="137" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#prepareStatement#0;class#Database#0" />
-            <element signature="method#connectToDb#0;class#Database#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/account/account.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state>
           <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/db/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#prepareStatement#0;class#Database#0" />
+            <element signature="method#connectToDb#0;class#Database#0" />
+          </folding>
         </state>
       </provider>
     </entry>
