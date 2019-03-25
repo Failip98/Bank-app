@@ -9,9 +9,9 @@ public class TransactionController {
     @FXML Label date;
     @FXML Label to;
     @FXML Label from;
+
     @FXML
     private void initialize(){
-        System.out.println("initialize transaction");
     }
 
     public void setTransaction(Transaction transaction) {
@@ -20,5 +20,4 @@ public class TransactionController {
         amount.setText(transaction.getAmount());
         from.setText(transaction.getFrom());
     }
-
 }

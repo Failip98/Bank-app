@@ -18,8 +18,6 @@ public class Transaction {
 
     private List<Transaction> transactionList;
 
-    public String getOwner_id(){ return owner_id; }
-
     public String getTo(){ return to; }
 
     public String getFrom(){ return from; }

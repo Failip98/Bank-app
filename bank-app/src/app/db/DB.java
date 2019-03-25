@@ -5,7 +5,6 @@ import app.Entities.User;
 import java.sql.PreparedStatement;
 import java.util.List;
 
-/** A Helper class for interacting with the Database using short-commands */
 public abstract class DB {
 
     public static PreparedStatement prep(String SQLQuery){
@@ -26,12 +25,12 @@ public abstract class DB {
     public static List<Transaction> getTransactions( String account_nr){
         List<Transaction> result = null;
         PreparedStatement ps = prep("SELECT * FROM transactions WHERE transactions.`to` = ? OR transactions.`from` = ? ORDER BY transactions.date DESC;");
-        try {
-            ps.setString(1, account_nr);
-            ps.setString(2, account_nr);
-            result = (List<Transaction>)(List<?>) new ObjectMapper<>(Transaction.class).map(ps.executeQuery());
-        } catch (Exception e) { e.printStackTrace(); }
-        return result; // transactionslista
+            try {
+                ps.setString(1, account_nr);
+                ps.setString(2, account_nr);
+                result = (List<Transaction>)(List<?>) new ObjectMapper<>(Transaction.class).map(ps.executeQuery());
+            } catch (Exception e) { e.printStackTrace(); }
+        return result;
     }
 
     public static void delitMyAccount( String account_nr){
@@ -81,7 +80,7 @@ public abstract class DB {
         }
     }
 
-    public static void addToTrnsaktion(String person_id, String to, String from, Double amount){
+    public static void addToTrnsaktion(String to, String from, Double amount){
         PreparedStatement ps = prep("INSERT INTO transactions SET  transactions.`to` = ?, transactions.`from` =?, transactions.amount = ?;");
         try {
             ps.setString(1, to);
@@ -140,32 +139,4 @@ public abstract class DB {
         }
         return result;
     }
-
-    /*public Transaction getTransaction(String person_id) {
-        Transaction result = null;
-        PreparedStatement ps = prep("SELECT * FROM transactions WHERE person_id = ?");
-        try {
-            ps.setString(1, person_id);
-            result = (Transaction)new ObjectMapper<>(Transaction.class).mapOne(ps.executeQuery());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-*/
-
-    /*
-        Example method with default parameters
-    public static List<Transaction> getTransactions(int accountId){ return getTransactions(accountId, 0, 10); }
-    public static List<Transaction> getTransactions(int accountId, int offset){ return getTransactions(accountId, offset, offset + 10); }
-    public static List<Transaction> getTransactions(int accountId, int offset, int limit){
-        List<Transaction> result = null;
-        PreparedStatement ps = prep("bla bla from transactions WHERE account-id = "+accountId+" OFFSET "+offset+" LIMIT "+limit);
-        try {
-            result = (List<Transaction>)new ObjectMapper<>(Transaction.class).map(ps.executeQuery());
-        } catch (Exception e) { e.printStackTrace(); }
-        return result; // return User;
-    }
-    */
-
 }
