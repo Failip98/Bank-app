@@ -9,3 +9,4 @@ Om man råkar ta bort eller inte har ett credit card eller sallery så kan man s
 Men man kan bara ha ett av dessa åt gången.
 Man kan ändast ta bort tomma konton så man inte råkar ta bort sitt sparkonto med pengar eller 
 försöker gjöra sig skulldfri genom ta bort ett konto man har negativt med pengar på.
+https://trello.com/invite/b/8uvdYxWg/ef7c0d0be12c09584ccbc12b9a176e95/bank-app
