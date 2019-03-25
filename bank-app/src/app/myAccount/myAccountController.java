@@ -77,6 +77,7 @@ public class myAccountController {
         Account account_nr = DB.getAccountnr(person_id, accounttype);
         if(account_nr != null){
             DB.addPayment(sallery, account_nr.getAccount_nr());
+            DB.subbtraktPayment(sallery, from);
             newTransaction(account_nr.getAccount_nr(),from,sallery);
             Label_sallery.setText("You got paid");
         }else{
@@ -93,6 +94,7 @@ public class myAccountController {
         System.out.println(account_nr);
         if(account_nr != null){
             DB.subbtraktPayment(payment, account_nr.getAccount_nr());
+            DB.addPayment(payment, to);
             newTransaction(to,account_nr.getAccount_nr(),payment);
             Label_payment.setText("Payment made");
         }else{
